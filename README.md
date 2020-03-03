@@ -1,6 +1,4 @@
 # OpenWeatherApp
-An app with open weather
-
 This code was written by Niv Ben-Porath
 
 

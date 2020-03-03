@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E832E6E8240EFA4700408507 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832E6E7240EFA4700408507 /* Colors.swift */; };
+		E832E6EA240EFD7500408507 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832E6E9240EFD7500408507 /* Texts.swift */; };
 		E8C7025C240EF76000518438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025B240EF76000518438 /* AppDelegate.swift */; };
 		E8C7025E240EF76000518438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025D240EF76000518438 /* SceneDelegate.swift */; };
 		E8C70260240EF76000518438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025F240EF76000518438 /* ViewController.swift */; };
-		E8C70263240EF76000518438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C70261240EF76000518438 /* Main.storyboard */; };
 		E8C70266240EF76000518438 /* OpenWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8C70264240EF76000518438 /* OpenWeatherApp.xcdatamodeld */; };
 		E8C70268240EF76900518438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8C70267240EF76900518438 /* Assets.xcassets */; };
 		E8C7026B240EF76900518438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C70269240EF76900518438 /* LaunchScreen.storyboard */; };
+		E8C70278240EF96200518438 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C70277240EF96200518438 /* CitiesListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E832E6E7240EFA4700408507 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		E832E6E9240EFD7500408507 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		E8C70258240EF76000518438 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C7025B240EF76000518438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8C7025D240EF76000518438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E8C7025F240EF76000518438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E8C70262240EF76000518438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8C70265240EF76000518438 /* OpenWeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenWeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		E8C70267240EF76900518438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8C7026A240EF76900518438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8C7026C240EF76900518438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8C70277240EF96200518438 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,58 @@
 		E8C7025A240EF76000518438 /* OpenWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				E8C7025B240EF76000518438 /* AppDelegate.swift */,
-				E8C7025D240EF76000518438 /* SceneDelegate.swift */,
+				E8C70276240EF8B400518438 /* Constants */,
+				E8C70275240EF8AD00518438 /* Models */,
+				E8C70274240EF8A600518438 /* Views */,
+				E8C70273240EF87200518438 /* Data */,
+				E8C70272240EF84200518438 /* Support */,
 				E8C7025F240EF76000518438 /* ViewController.swift */,
-				E8C70261240EF76000518438 /* Main.storyboard */,
-				E8C70267240EF76900518438 /* Assets.xcassets */,
-				E8C70269240EF76900518438 /* LaunchScreen.storyboard */,
 				E8C7026C240EF76900518438 /* Info.plist */,
-				E8C70264240EF76000518438 /* OpenWeatherApp.xcdatamodeld */,
 			);
 			path = OpenWeatherApp;
+			sourceTree = "<group>";
+		};
+		E8C70272240EF84200518438 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				E8C7025D240EF76000518438 /* SceneDelegate.swift */,
+				E8C7025B240EF76000518438 /* AppDelegate.swift */,
+				E8C70267240EF76900518438 /* Assets.xcassets */,
+				E8C70269240EF76900518438 /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		E8C70273240EF87200518438 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E8C70264240EF76000518438 /* OpenWeatherApp.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E8C70274240EF8A600518438 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8C70277240EF96200518438 /* CitiesListViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E8C70275240EF8AD00518438 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E8C70276240EF8B400518438 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E832E6E7240EFA4700408507 /* Colors.swift */,
+				E832E6E9240EFD7500408507 /* Texts.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +176,6 @@
 			files = (
 				E8C7026B240EF76900518438 /* LaunchScreen.storyboard in Resources */,
 				E8C70268240EF76900518438 /* Assets.xcassets in Resources */,
-				E8C70263240EF76000518438 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,23 +187,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8C70260240EF76000518438 /* ViewController.swift in Sources */,
+				E832E6EA240EFD7500408507 /* Texts.swift in Sources */,
+				E832E6E8240EFA4700408507 /* Colors.swift in Sources */,
 				E8C7025C240EF76000518438 /* AppDelegate.swift in Sources */,
 				E8C70266240EF76000518438 /* OpenWeatherApp.xcdatamodeld in Sources */,
 				E8C7025E240EF76000518438 /* SceneDelegate.swift in Sources */,
+				E8C70278240EF96200518438 /* CitiesListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E8C70261240EF76000518438 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E8C70262240EF76000518438 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E8C70269240EF76900518438 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -298,7 +338,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbpapps.OpenWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -316,7 +356,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nbpapps.OpenWeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
