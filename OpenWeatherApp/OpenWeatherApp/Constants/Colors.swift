@@ -8,6 +8,7 @@
 
 import UIKit
 
-struct Colors {
-    static let mainColor = UIColor(named: "MainColor")
+extension UIColor {
+    static let mainColor = UIColor(named: "MainColor")!
+    static let buttonBackgroundColor = UIColor.clear
 }

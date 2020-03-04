@@ -8,4 +8,5 @@ Known issues and bugs
 
 Notes:
 * UI is implemented in code
+* Custom views were used from an SPM I wrote - https://github.com/nbpapps/MyViewsCustomized 
 

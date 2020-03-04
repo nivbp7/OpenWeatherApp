@@ -9,5 +9,19 @@
 import Foundation
 
 struct Texts {
-    static let apiKey = ""
+    
+    static let switchToList = "Show cities in list"
+    static let switchToGrid = "Show cities in grid"
+    
+    static let citiesTitle = "Cities"
+    
+    static let noStoryboardImplementation = "No Storyboard Implementation"
+    
+    static let apiKey = "e4bb695a74b1eca68577848b1da1079d"
+    
+    //api.openweathermap.org/data/2.5/weather?id=293397&appid=e4bb695a74b1eca68577848b1da1079d
+    
+//    api.openweathermap.org/data/2.5/forecast?id=293397&appid=e4bb695a74b1eca68577848b1da1079d
+
+
 }

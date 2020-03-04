@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "MyViewsCustomized",
+        "repositoryURL": "https://github.com/nbpapps/MyViewsCustomized.git",
+        "state": {
+          "branch": "master",
+          "revision": "70eae8e93979e8693d10acffa19c35c7a713b37f",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -3,12 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E832E6E8240EFA4700408507 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832E6E7240EFA4700408507 /* Colors.swift */; };
 		E832E6EA240EFD7500408507 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832E6E9240EFD7500408507 /* Texts.swift */; };
+		E8568567240FAB78008B7A29 /* MyViewsCustomized in Frameworks */ = {isa = PBXBuildFile; productRef = E8568566240FAB78008B7A29 /* MyViewsCustomized */; };
+		E856856A240FAE06008B7A29 /* UIButton+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568569240FAE06008B7A29 /* UIButton+Config.swift */; };
+		E856856C240FB31E008B7A29 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856856B240FB31E008B7A29 /* CitiesTableViewController.swift */; };
+		E856856E240FB42B008B7A29 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856856D240FB42B008B7A29 /* UIViewController+Utils.swift */; };
+		E8568572240FB791008B7A29 /* UIcollectionView+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568571240FB791008B7A29 /* UIcollectionView+Config.swift */; };
+		E8568574240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568573240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift */; };
+		E8568576240FBBAF008B7A29 /* CitiesGripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568575240FBBAF008B7A29 /* CitiesGripViewController.swift */; };
+		E8568579240FBD6C008B7A29 /* CityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568578240FBD6C008B7A29 /* CityCollectionViewCell.swift */; };
+		E856857B240FC0C0008B7A29 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856857A240FC0C0008B7A29 /* UserDefaults.swift */; };
 		E8C7025C240EF76000518438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025B240EF76000518438 /* AppDelegate.swift */; };
 		E8C7025E240EF76000518438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025D240EF76000518438 /* SceneDelegate.swift */; };
 		E8C70260240EF76000518438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025F240EF76000518438 /* ViewController.swift */; };
@@ -21,6 +30,14 @@
 /* Begin PBXFileReference section */
 		E832E6E7240EFA4700408507 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E832E6E9240EFD7500408507 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
+		E8568569240FAE06008B7A29 /* UIButton+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Config.swift"; sourceTree = "<group>"; };
+		E856856B240FB31E008B7A29 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		E856856D240FB42B008B7A29 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		E8568571240FB791008B7A29 /* UIcollectionView+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcollectionView+Config.swift"; sourceTree = "<group>"; };
+		E8568573240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewFlowLayout+config.swift"; sourceTree = "<group>"; };
+		E8568575240FBBAF008B7A29 /* CitiesGripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesGripViewController.swift; sourceTree = "<group>"; };
+		E8568578240FBD6C008B7A29 /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
+		E856857A240FC0C0008B7A29 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E8C70258240EF76000518438 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C7025B240EF76000518438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8C7025D240EF76000518438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,12 +54,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8568567240FAB78008B7A29 /* MyViewsCustomized in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E8568568240FADEB008B7A29 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E8568569240FAE06008B7A29 /* UIButton+Config.swift */,
+				E856856D240FB42B008B7A29 /* UIViewController+Utils.swift */,
+				E8568571240FB791008B7A29 /* UIcollectionView+Config.swift */,
+				E8568573240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E8568577240FBD4D008B7A29 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E8568578240FBD6C008B7A29 /* CityCollectionViewCell.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		E8C7024F240EF76000518438 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +99,8 @@
 		E8C7025A240EF76000518438 /* OpenWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				E8568577240FBD4D008B7A29 /* CustomViews */,
+				E8568568240FADEB008B7A29 /* Utils */,
 				E8C70276240EF8B400518438 /* Constants */,
 				E8C70275240EF8AD00518438 /* Models */,
 				E8C70274240EF8A600518438 /* Views */,
@@ -88,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				E8C70264240EF76000518438 /* OpenWeatherApp.xcdatamodeld */,
+				E856857A240FC0C0008B7A29 /* UserDefaults.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -96,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				E8C70277240EF96200518438 /* CitiesListViewController.swift */,
+				E856856B240FB31E008B7A29 /* CitiesTableViewController.swift */,
+				E8568575240FBBAF008B7A29 /* CitiesGripViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,6 +174,9 @@
 			dependencies = (
 			);
 			name = OpenWeatherApp;
+			packageProductDependencies = (
+				E8568566240FAB78008B7A29 /* MyViewsCustomized */,
+			);
 			productName = OpenWeatherApp;
 			productReference = E8C70258240EF76000518438 /* OpenWeatherApp.app */;
 			productType = "com.apple.product-type.application";
@@ -160,6 +205,9 @@
 				Base,
 			);
 			mainGroup = E8C7024F240EF76000518438;
+			packageReferences = (
+				E8568565240FAB78008B7A29 /* XCRemoteSwiftPackageReference "MyViewsCustomized" */,
+			);
 			productRefGroup = E8C70259240EF76000518438 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -188,11 +236,19 @@
 			files = (
 				E8C70260240EF76000518438 /* ViewController.swift in Sources */,
 				E832E6EA240EFD7500408507 /* Texts.swift in Sources */,
+				E8568574240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift in Sources */,
+				E856856C240FB31E008B7A29 /* CitiesTableViewController.swift in Sources */,
 				E832E6E8240EFA4700408507 /* Colors.swift in Sources */,
+				E856856E240FB42B008B7A29 /* UIViewController+Utils.swift in Sources */,
+				E856856A240FAE06008B7A29 /* UIButton+Config.swift in Sources */,
+				E8568579240FBD6C008B7A29 /* CityCollectionViewCell.swift in Sources */,
 				E8C7025C240EF76000518438 /* AppDelegate.swift in Sources */,
 				E8C70266240EF76000518438 /* OpenWeatherApp.xcdatamodeld in Sources */,
 				E8C7025E240EF76000518438 /* SceneDelegate.swift in Sources */,
+				E856857B240FC0C0008B7A29 /* UserDefaults.swift in Sources */,
 				E8C70278240EF96200518438 /* CitiesListViewController.swift in Sources */,
+				E8568576240FBBAF008B7A29 /* CitiesGripViewController.swift in Sources */,
+				E8568572240FB791008B7A29 /* UIcollectionView+Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +438,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E8568565240FAB78008B7A29 /* XCRemoteSwiftPackageReference "MyViewsCustomized" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nbpapps/MyViewsCustomized.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E8568566240FAB78008B7A29 /* MyViewsCustomized */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8568565240FAB78008B7A29 /* XCRemoteSwiftPackageReference "MyViewsCustomized" */;
+			productName = MyViewsCustomized;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		E8C70264240EF76000518438 /* OpenWeatherApp.xcdatamodeld */ = {
