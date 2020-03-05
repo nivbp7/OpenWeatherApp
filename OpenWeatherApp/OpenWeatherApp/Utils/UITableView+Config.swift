@@ -9,5 +9,5 @@
 import UIKit
 
 extension UITableView {
-    static let heightForRow : CGFloat = 60.0
+    static let heightForRow : CGFloat = 90.0
 }

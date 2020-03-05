@@ -32,11 +32,5 @@ struct Texts {
     static let noItemInRow = "No itme for this row"
 
 
-    static let apiKey = "e4bb695a74b1eca68577848b1da1079d"
-    
-    //api.openweathermap.org/data/2.5/weather?id=293397&appid=e4bb695a74b1eca68577848b1da1079d
-    
-//    api.openweathermap.org/data/2.5/forecast?id=293397&appid=e4bb695a74b1eca68577848b1da1079d
-
 
 }

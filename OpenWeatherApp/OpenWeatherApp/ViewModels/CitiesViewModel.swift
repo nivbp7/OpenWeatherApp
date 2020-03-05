@@ -18,6 +18,9 @@ struct CitiesViewModel {
     ]
     
     func city(at index : Int) -> City? {
+        if index > numberOfCities() {
+            return nil
+        }
         let city = cities[index]
         return city
     }

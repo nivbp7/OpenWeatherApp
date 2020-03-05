@@ -8,7 +8,34 @@
 
 import Foundation
 
-struct City {
-    var name : String
-    var id : Int
+class City {
+    let name : String
+    let id : Int
+    
+    var temp : String?
+    var description : String?
+    
+    init(name: String, id: Int) {
+        self.name = name
+        self.id = id
+        self.temp = nil
+        self.description = nil
+    }
+    
+    func set(temp :String?, andDescription description : String?) {
+        self.temp = temp
+        self.description = description
+    }
+    
+    var showTemp : String {
+        get {
+            return (temp ?? "25") + Values.degreeSign
+        }
+    }
+    
+    var shownDescription : String {
+        get {
+            return description ?? "scattered clouds"
+        }
+    }
 }

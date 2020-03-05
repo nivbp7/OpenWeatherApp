@@ -14,7 +14,8 @@ class CityTableViewCell: UITableViewCell {
     static let reuseId = "CityCell"
     
     let cityNameLabel = NBPLabel(textAlignment: .left, fontSize: UIFont.cityNameFont, weight: .semibold, color: .mainColor)
-    let containerView = UIView(frame: .zero)
+    let cityTempLabel = NBPLabel(textAlignment: .right, fontSize: UIFont.cityTempFont, weight: .bold, color: .mainColor)
+    let cityWeatherDescriptionLabel = NBPLabel(textAlignment: .left, fontSize: UIFont.cityWeatherDescription, weight: .regular, color: .mainColor)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,9 +31,16 @@ class CityTableViewCell: UITableViewCell {
         contentView.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = UICollectionViewCell.cellRadius
         
-        let stackView = UIStackView(arrangedSubviews: [cityNameLabel])
+        
+        let leftStackView = UIStackView(arrangedSubviews: [cityNameLabel,cityWeatherDescriptionLabel])
+        leftStackView.axis = .vertical
+        leftStackView.alignment = .fill
+        leftStackView.distribution = .fill
+        
+        
+        let stackView = UIStackView(arrangedSubviews: [leftStackView,cityTempLabel])
         stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .equalSpacing
         stackView.alignment = .center
         stackView.translatesAutoresizingMaskIntoConstraints = false
         

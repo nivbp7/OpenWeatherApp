@@ -34,6 +34,12 @@ final class CitiesListViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         layoutView()
+        
+        let dataFetch = DataFetch()
+        dataFetch.fetchCurrentWetherForCityId(cityId: 293397) { (result) in
+            
+        }
+        
     }
     
     

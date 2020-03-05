@@ -9,5 +9,7 @@
 import UIKit
 
 extension UIFont {
-    static let cityNameFont : CGFloat = 18.0
+    static let cityNameFont : CGFloat = 25.0
+    static let cityTempFont : CGFloat = 40.0
+    static let cityWeatherDescription : CGFloat = 20.0
 }

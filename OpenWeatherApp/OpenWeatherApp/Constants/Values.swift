@@ -15,6 +15,7 @@ struct Values {
     static let haifaId = 294801
     static let eilatId = 295277
     
-    //MARK: - fonts
-    static let cityNameFont = 14.0
+    //MARK: -
+    static let degreeSign = "\u{00B0}"
+    
 }
