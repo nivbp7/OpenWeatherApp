@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import MyViewsCustomized
 
 class CityCollectionViewCell: UICollectionViewCell {
     
     static let reuseId = "CityCell"
     
-    let cityNameLabel = UILabel()
+    let cityNameLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityNameFont, weight: .semibold, color: .mainColor)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,8 +25,24 @@ class CityCollectionViewCell: UICollectionViewCell {
     }
     
     private func configure() {
-        backgroundColor = .red
-        addSubview(cityNameLabel)
+        backgroundColor = .clear
+        contentView.backgroundColor = .systemBackground
+        contentView.layer.borderColor = UIColor.mainColor.cgColor
+        contentView.layer.cornerRadius = UICollectionViewCell.cellRadius
+        contentView.layer.borderWidth = UICollectionViewCell.cellBorderWidth
+        
+        let stackView = UIStackView(arrangedSubviews: [cityNameLabel])
+        stackView.axis = .vertical
+        stackView.distribution = .equalCentering
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UICollectionViewCell.cellPadding),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UICollectionViewCell.cellPadding),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UICollectionViewCell.cellPadding),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UICollectionViewCell.cellPadding)
+        ])
     }
     
 }

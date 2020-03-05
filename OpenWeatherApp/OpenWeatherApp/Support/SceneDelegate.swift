@@ -28,7 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createMainNavigationController() -> UINavigationController {
-        let citiesListViewController = CitiesListViewController()
+        let citiesViewModel = CitiesViewModel()
+        let citiesListViewController = CitiesListViewController(citiesViewModel: citiesViewModel)
         return UINavigationController(rootViewController: citiesListViewController)
     }
     

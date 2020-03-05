@@ -8,26 +8,10 @@
 
 import Foundation
 
-//enum CitiesViewState : String {
-//    case List
-//    case Grid
-//}
-
 extension UserDefaults {
     public enum Keys {
-//        static let citiesViewSavedState = "citiesViewSavedState"
         static let citiesShownInGrid = "citiesShownInGrid"
     }
-    
-//    var citiesViewSavedState : String {
-//           set {
-//               set(newValue,forKey: Keys.citiesViewSavedState)
-//           }
-//           get{
-//            return string(forKey: Keys.citiesViewSavedState) ?? CitiesViewState.List.rawValue
-//           }
-//       }
-    
     
     var citiesShownInGrid : Bool {
         set {

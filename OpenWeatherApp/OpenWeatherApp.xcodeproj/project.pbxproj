@@ -15,9 +15,20 @@
 		E856856E240FB42B008B7A29 /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856856D240FB42B008B7A29 /* UIViewController+Utils.swift */; };
 		E8568572240FB791008B7A29 /* UIcollectionView+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568571240FB791008B7A29 /* UIcollectionView+Config.swift */; };
 		E8568574240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568573240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift */; };
-		E8568576240FBBAF008B7A29 /* CitiesGripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568575240FBBAF008B7A29 /* CitiesGripViewController.swift */; };
 		E8568579240FBD6C008B7A29 /* CityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8568578240FBD6C008B7A29 /* CityCollectionViewCell.swift */; };
 		E856857B240FC0C0008B7A29 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856857A240FC0C0008B7A29 /* UserDefaults.swift */; };
+		E856857F24100B38008B7A29 /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856857E24100B38008B7A29 /* Values.swift */; };
+		E856858424101406008B7A29 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856858324101406008B7A29 /* CitiesViewModel.swift */; };
+		E85685862410F0A7008B7A29 /* UILabel+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85685852410F0A7008B7A29 /* UILabel+Config.swift */; };
+		E85685882410F170008B7A29 /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85685872410F170008B7A29 /* CityTableViewCell.swift */; };
+		E856858A2410F238008B7A29 /* Font+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85685892410F238008B7A29 /* Font+Config.swift */; };
+		E856858C2410F57C008B7A29 /* CitiesGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856858B2410F57C008B7A29 /* CitiesGridViewController.swift */; };
+		E856858E2410F984008B7A29 /* UITableViewCell+Cofig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856858D2410F984008B7A29 /* UITableViewCell+Cofig.swift */; };
+		E85685902410FAEB008B7A29 /* UITableView+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856858F2410FAEB008B7A29 /* UITableView+Config.swift */; };
+		E85685922410FBFF008B7A29 /* UIcollectionViewCell+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85685912410FBFF008B7A29 /* UIcollectionViewCell+Config.swift */; };
+		E856859424110AE7008B7A29 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856859324110AE7008B7A29 /* City.swift */; };
+		E856859724110BF0008B7A29 /* CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856859624110BF0008B7A29 /* CollectionViewDataSource.swift */; };
+		E856859B24110FCB008B7A29 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E856859A24110FCB008B7A29 /* TableViewDataSource.swift */; };
 		E8C7025C240EF76000518438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025B240EF76000518438 /* AppDelegate.swift */; };
 		E8C7025E240EF76000518438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025D240EF76000518438 /* SceneDelegate.swift */; };
 		E8C70260240EF76000518438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025F240EF76000518438 /* ViewController.swift */; };
@@ -35,9 +46,20 @@
 		E856856D240FB42B008B7A29 /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		E8568571240FB791008B7A29 /* UIcollectionView+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcollectionView+Config.swift"; sourceTree = "<group>"; };
 		E8568573240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewFlowLayout+config.swift"; sourceTree = "<group>"; };
-		E8568575240FBBAF008B7A29 /* CitiesGripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesGripViewController.swift; sourceTree = "<group>"; };
 		E8568578240FBD6C008B7A29 /* CityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCollectionViewCell.swift; sourceTree = "<group>"; };
 		E856857A240FC0C0008B7A29 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		E856857E24100B38008B7A29 /* Values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
+		E856858324101406008B7A29 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
+		E85685852410F0A7008B7A29 /* UILabel+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Config.swift"; sourceTree = "<group>"; };
+		E85685872410F170008B7A29 /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		E85685892410F238008B7A29 /* Font+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Config.swift"; sourceTree = "<group>"; };
+		E856858B2410F57C008B7A29 /* CitiesGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesGridViewController.swift; sourceTree = "<group>"; };
+		E856858D2410F984008B7A29 /* UITableViewCell+Cofig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Cofig.swift"; sourceTree = "<group>"; };
+		E856858F2410FAEB008B7A29 /* UITableView+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Config.swift"; sourceTree = "<group>"; };
+		E85685912410FBFF008B7A29 /* UIcollectionViewCell+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIcollectionViewCell+Config.swift"; sourceTree = "<group>"; };
+		E856859324110AE7008B7A29 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		E856859624110BF0008B7A29 /* CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewDataSource.swift; sourceTree = "<group>"; };
+		E856859A24110FCB008B7A29 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		E8C70258240EF76000518438 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C7025B240EF76000518438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8C7025D240EF76000518438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +90,11 @@
 				E856856D240FB42B008B7A29 /* UIViewController+Utils.swift */,
 				E8568571240FB791008B7A29 /* UIcollectionView+Config.swift */,
 				E8568573240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift */,
+				E85685852410F0A7008B7A29 /* UILabel+Config.swift */,
+				E85685892410F238008B7A29 /* Font+Config.swift */,
+				E856858D2410F984008B7A29 /* UITableViewCell+Cofig.swift */,
+				E856858F2410FAEB008B7A29 /* UITableView+Config.swift */,
+				E85685912410FBFF008B7A29 /* UIcollectionViewCell+Config.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -76,8 +103,26 @@
 			isa = PBXGroup;
 			children = (
 				E8568578240FBD6C008B7A29 /* CityCollectionViewCell.swift */,
+				E85685872410F170008B7A29 /* CityTableViewCell.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		E8568580241013C6008B7A29 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E856858324101406008B7A29 /* CitiesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E856859524110BD0008B7A29 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				E856859624110BF0008B7A29 /* CollectionViewDataSource.swift */,
+				E856859A24110FCB008B7A29 /* TableViewDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 		E8C7024F240EF76000518438 = {
@@ -99,6 +144,8 @@
 		E8C7025A240EF76000518438 /* OpenWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				E856859524110BD0008B7A29 /* DataSource */,
+				E8568580241013C6008B7A29 /* ViewModels */,
 				E8568577240FBD4D008B7A29 /* CustomViews */,
 				E8568568240FADEB008B7A29 /* Utils */,
 				E8C70276240EF8B400518438 /* Constants */,
@@ -137,7 +184,7 @@
 			children = (
 				E8C70277240EF96200518438 /* CitiesListViewController.swift */,
 				E856856B240FB31E008B7A29 /* CitiesTableViewController.swift */,
-				E8568575240FBBAF008B7A29 /* CitiesGripViewController.swift */,
+				E856858B2410F57C008B7A29 /* CitiesGridViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,6 +192,7 @@
 		E8C70275240EF8AD00518438 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E856859324110AE7008B7A29 /* City.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +202,7 @@
 			children = (
 				E832E6E7240EFA4700408507 /* Colors.swift */,
 				E832E6E9240EFD7500408507 /* Texts.swift */,
+				E856857E24100B38008B7A29 /* Values.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -235,19 +284,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8C70260240EF76000518438 /* ViewController.swift in Sources */,
+				E856858424101406008B7A29 /* CitiesViewModel.swift in Sources */,
+				E856858E2410F984008B7A29 /* UITableViewCell+Cofig.swift in Sources */,
+				E85685882410F170008B7A29 /* CityTableViewCell.swift in Sources */,
 				E832E6EA240EFD7500408507 /* Texts.swift in Sources */,
 				E8568574240FB7C3008B7A29 /* UICollectionViewFlowLayout+config.swift in Sources */,
+				E856859424110AE7008B7A29 /* City.swift in Sources */,
 				E856856C240FB31E008B7A29 /* CitiesTableViewController.swift in Sources */,
 				E832E6E8240EFA4700408507 /* Colors.swift in Sources */,
+				E85685862410F0A7008B7A29 /* UILabel+Config.swift in Sources */,
+				E856859B24110FCB008B7A29 /* TableViewDataSource.swift in Sources */,
+				E856858A2410F238008B7A29 /* Font+Config.swift in Sources */,
 				E856856E240FB42B008B7A29 /* UIViewController+Utils.swift in Sources */,
 				E856856A240FAE06008B7A29 /* UIButton+Config.swift in Sources */,
 				E8568579240FBD6C008B7A29 /* CityCollectionViewCell.swift in Sources */,
+				E85685922410FBFF008B7A29 /* UIcollectionViewCell+Config.swift in Sources */,
+				E85685902410FAEB008B7A29 /* UITableView+Config.swift in Sources */,
 				E8C7025C240EF76000518438 /* AppDelegate.swift in Sources */,
 				E8C70266240EF76000518438 /* OpenWeatherApp.xcdatamodeld in Sources */,
+				E856857F24100B38008B7A29 /* Values.swift in Sources */,
 				E8C7025E240EF76000518438 /* SceneDelegate.swift in Sources */,
+				E856859724110BF0008B7A29 /* CollectionViewDataSource.swift in Sources */,
 				E856857B240FC0C0008B7A29 /* UserDefaults.swift in Sources */,
 				E8C70278240EF96200518438 /* CitiesListViewController.swift in Sources */,
-				E8568576240FBBAF008B7A29 /* CitiesGripViewController.swift in Sources */,
+				E856858C2410F57C008B7A29 /* CitiesGridViewController.swift in Sources */,
 				E8568572240FB791008B7A29 /* UIcollectionView+Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

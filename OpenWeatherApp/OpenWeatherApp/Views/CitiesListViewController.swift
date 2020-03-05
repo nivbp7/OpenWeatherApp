@@ -9,13 +9,25 @@
 import UIKit
 import MyViewsCustomized
 
-class CitiesListViewController: UIViewController {
+final class CitiesListViewController: UIViewController {
     
     private lazy var stateButton = makeStateButton()
     private lazy var citiesTableViewController = makeCitiesTableViewController()
     private lazy var citiesCollectionViewController = makeCitiesCollectionViewController()
     
     private var citiesShownInGrid = UserDefaults.standard.citiesShownInGrid
+    
+    let citiesViewModel : CitiesViewModel
+    
+    //MARK: - init
+    init(citiesViewModel : CitiesViewModel){
+        self.citiesViewModel = citiesViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError(Texts.noStoryboardImplementation)
+    }
     
     //MARK: - life cycle
     override func viewDidLoad() {
@@ -26,13 +38,12 @@ class CitiesListViewController: UIViewController {
     
     
     //MARK: - factory
-    
     private func makeCitiesCollectionViewController() -> CitiesGridViewController {
-        return CitiesGridViewController()
+        return CitiesGridViewController(citiesViewModel: citiesViewModel)
     }
     
     private func makeCitiesTableViewController() -> CitiesTableViewController {
-        return CitiesTableViewController()
+        return CitiesTableViewController(citiesViewModel: citiesViewModel)
     }
     
     private func makeStateButton() -> NBPButton {
@@ -41,6 +52,7 @@ class CitiesListViewController: UIViewController {
         stateButton.addTarget(self, action: #selector(stateButtonTapped), for: .touchUpInside)
         return stateButton
     }
+
     
     //MARK: - configure
     private func configureView() {
@@ -71,7 +83,6 @@ class CitiesListViewController: UIViewController {
     }
     
     private func toggleViewState() {
-        
         var citiesShownInGrid = UserDefaults.standard.citiesShownInGrid
         if citiesShownInGrid {
             //we are now in a grid view, so switch to list
@@ -82,17 +93,17 @@ class CitiesListViewController: UIViewController {
         
         citiesShownInGrid.toggle()
         UserDefaults.standard.citiesShownInGrid = citiesShownInGrid
-        
     }
     
+    //MARK: - changing views
     private func showListView() {
-        add(citiesTableViewController, adjacentTo: stateButton)
+        add(citiesTableViewController, below: stateButton, withPadding: UIButton.edgePadding)
         citiesCollectionViewController.remove()
         stateButton.setTitle(Texts.switchToGrid, for: .normal)//we set the text to read "switch to grid", because we are now showing a list
     }
     
     private func showGridView() {
-        add(citiesCollectionViewController, adjacentTo: stateButton)
+        add(citiesCollectionViewController, below: stateButton, withPadding: UIButton.edgePadding)
         citiesTableViewController.remove()
         stateButton.setTitle(Texts.switchToList, for: .normal)
     }

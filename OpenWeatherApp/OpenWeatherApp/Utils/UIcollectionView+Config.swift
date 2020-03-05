@@ -11,7 +11,7 @@ import UIKit
 extension UICollectionView {
     static let collectionViewPadding : CGFloat = 12
     static let collectionViewMinItemSpacing : CGFloat = 5
-    static let collectionViewAdditionalItemHeight : CGFloat = 30
+    static let collectionViewAdditionalItemHeight : CGFloat = 10
     
     static let numberOfCollectionViewColums = 2
 }

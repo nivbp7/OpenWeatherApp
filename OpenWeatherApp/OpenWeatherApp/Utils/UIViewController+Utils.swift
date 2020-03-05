@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    func add(_ child : UIViewController,adjacentTo showenView : UIView) {
+    func add(_ child : UIViewController,below showenView : UIView,withPadding padding : CGFloat) {
         addChild(child)
         child.view.translatesAutoresizingMaskIntoConstraints = false
         
@@ -18,7 +18,7 @@ extension UIViewController {
         NSLayoutConstraint.activate([
             child.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             child.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            child.view.topAnchor.constraint(equalTo: showenView.bottomAnchor),
+            child.view.topAnchor.constraint(equalTo: showenView.bottomAnchor, constant: padding),
             child.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
