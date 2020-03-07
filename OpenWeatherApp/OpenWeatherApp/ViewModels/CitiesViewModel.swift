@@ -28,4 +28,8 @@ struct CitiesViewModel {
     func numberOfCities() -> Int {
         return cities.count
     }
+    
+    func allCities() -> [City] {
+        return cities
+    }
 }

@@ -34,12 +34,7 @@ final class CitiesListViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         layoutView()
-        
-        let dataFetch = DataFetch()
-        dataFetch.fetchCurrentWetherForCityId(cityId: 293397) { (result) in
-            
-        }
-        
+        fetchCurrentWeather()
     }
     
     
@@ -112,6 +107,12 @@ final class CitiesListViewController: UIViewController {
         add(citiesCollectionViewController, below: stateButton, withPadding: UIButton.edgePadding)
         citiesTableViewController.remove()
         stateButton.setTitle(Texts.switchToList, for: .normal)
+    }
+    
+    //MARK: - fetch data
+    private func fetchCurrentWeather() {
+        let dataFetch = DataFetch()
+        dataFetch.fetchAllWeatherFrom(citiesViewModel: citiesViewModel)
     }
     
     
