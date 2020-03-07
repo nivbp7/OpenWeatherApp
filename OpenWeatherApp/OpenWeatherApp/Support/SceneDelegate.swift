@@ -28,8 +28,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createMainNavigationController() -> UINavigationController {
+        let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        let coreDataInterface = CoreDataInterface(persistentContainer: persistentContainer)
         let citiesViewModel = CitiesViewModel()
-        let citiesListViewController = CitiesListViewController(citiesViewModel: citiesViewModel)
+        let citiesListViewController = CitiesListViewController(citiesViewModel: citiesViewModel, coreDataInterface: coreDataInterface)
         return UINavigationController(rootViewController: citiesListViewController)
     }
     

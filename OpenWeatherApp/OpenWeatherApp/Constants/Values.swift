@@ -15,7 +15,7 @@ struct Values {
     static let haifaId = 294801
     static let eilatId = 295277
     
-    //MARK: -
+    //MARK: - general
     static let degreeSign = "\u{00B0}"
     
 }

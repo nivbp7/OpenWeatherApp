@@ -12,6 +12,7 @@
 		E823AE1B24123E9C0053C571 /* CoreDataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823AE1A24123E9C0053C571 /* CoreDataInterface.swift */; };
 		E823AE1D241388180053C571 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823AE1C241388180053C571 /* Weather.swift */; };
 		E823AE20241392570053C571 /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823AE1F241392570053C571 /* JsonParser.swift */; };
+		E823AE22241445230053C571 /* CityWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E823AE21241445230053C571 /* CityWeatherViewModel.swift */; };
 		E832E6E8240EFA4700408507 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832E6E7240EFA4700408507 /* Colors.swift */; };
 		E832E6EA240EFD7500408507 /* Texts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E832E6E9240EFD7500408507 /* Texts.swift */; };
 		E8568567240FAB78008B7A29 /* MyViewsCustomized in Frameworks */ = {isa = PBXBuildFile; productRef = E8568566240FAB78008B7A29 /* MyViewsCustomized */; };
@@ -53,6 +54,7 @@
 		E823AE1A24123E9C0053C571 /* CoreDataInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataInterface.swift; sourceTree = "<group>"; };
 		E823AE1C241388180053C571 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		E823AE1F241392570053C571 /* JsonParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
+		E823AE21241445230053C571 /* CityWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherViewModel.swift; sourceTree = "<group>"; };
 		E832E6E7240EFA4700408507 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E832E6E9240EFD7500408507 /* Texts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texts.swift; sourceTree = "<group>"; };
 		E8568569240FAE06008B7A29 /* UIButton+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Config.swift"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				E856858324101406008B7A29 /* CitiesViewModel.swift */,
+				E823AE21241445230053C571 /* CityWeatherViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				E832E6E8240EFA4700408507 /* Colors.swift in Sources */,
 				E85685CA24114202008B7A29 /* MoyaConfig.swift in Sources */,
 				E85685862410F0A7008B7A29 /* UILabel+Config.swift in Sources */,
+				E823AE22241445230053C571 /* CityWeatherViewModel.swift in Sources */,
 				E856859B24110FCB008B7A29 /* TableViewDataSource.swift in Sources */,
 				E856858A2410F238008B7A29 /* Font+Config.swift in Sources */,
 				E856856E240FB42B008B7A29 /* UIViewController+Utils.swift in Sources */,

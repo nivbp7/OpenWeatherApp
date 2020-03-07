@@ -11,13 +11,21 @@ import Foundation
 enum FetchError :Error {
     case networkError(errorMessage : String)
     case parserError(errorMessage : String)
+    case saveError(errorMessage : String)
 }
 
 typealias FetchCompletion =  (FetchError?) -> Void
+typealias DataHandlerCompletion = () -> Void
 
 struct DataFetch {
     
-    func fetchAllWeatherFrom(citiesViewModel : CitiesViewModel) {
+    let coreDataInterface : CoreDataInterface
+
+    init(coreDataInterface : CoreDataInterface) {
+        self.coreDataInterface = coreDataInterface
+    }
+    
+    func fetchAllWeatherFrom(citiesViewModel : CitiesViewModel,with completion : @escaping DataHandlerCompletion) {
         
         let group = DispatchGroup()
         
@@ -32,7 +40,7 @@ struct DataFetch {
         }
         
         group.notify(queue: DispatchQueue.global()) {
-            print("done")
+            completion()
         }
         
         
@@ -48,8 +56,13 @@ struct DataFetch {
                 
                 switch parsedData {
                 case .success(let currentWeather):
-                    print(currentWeather)
-                    completion(nil)
+                    self.saveCurrentWeather(currentWeather: currentWeather) { (coreDataError) in
+                        if let error = coreDataError {
+                            completion(.saveError(errorMessage: error.localizedDescription))
+                        }else{
+                            completion(nil)
+                        }
+                    }
                     
                 case .failure(let parseError):
                     completion(.parserError(errorMessage: parseError.localizedDescription))
@@ -57,8 +70,13 @@ struct DataFetch {
                 
             case .failure(let moyaError):
                 completion(.networkError(errorMessage: moyaError.localizedDescription))
-                
             }
+        }
+    }
+    
+    private func saveCurrentWeather(currentWeather : CurrentWeather,with completion : @escaping CoreDataCompletion) {
+        self.coreDataInterface.save(currentWeather: currentWeather) { (coreDataError) in
+            completion(coreDataError)
         }
     }
     

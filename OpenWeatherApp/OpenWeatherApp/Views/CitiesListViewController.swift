@@ -18,10 +18,12 @@ final class CitiesListViewController: UIViewController {
     private var citiesShownInGrid = UserDefaults.standard.citiesShownInGrid
     
     let citiesViewModel : CitiesViewModel
+    let coreDataInterface : CoreDataInterface
     
     //MARK: - init
-    init(citiesViewModel : CitiesViewModel){
+    init(citiesViewModel : CitiesViewModel,coreDataInterface : CoreDataInterface){
         self.citiesViewModel = citiesViewModel
+        self.coreDataInterface = coreDataInterface
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -111,8 +113,18 @@ final class CitiesListViewController: UIViewController {
     
     //MARK: - fetch data
     private func fetchCurrentWeather() {
-        let dataFetch = DataFetch()
-        dataFetch.fetchAllWeatherFrom(citiesViewModel: citiesViewModel)
+        let dataFetch = DataFetch(coreDataInterface: coreDataInterface)
+        dataFetch.fetchAllWeatherFrom(citiesViewModel: citiesViewModel) {
+            let allWeather = self.coreDataInterface.fetchAllCities()
+            switch allWeather {
+            case .success(let cityWeatherArray):
+                for city in cityWeatherArray {
+                    print("city \(city.cityId)")
+                }
+            case .failure(_):
+                break
+            }
+        }
     }
     
     

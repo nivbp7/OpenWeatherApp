@@ -29,13 +29,13 @@ class City {
     
     var showTemp : String {
         get {
-            return (temp ?? "25") + Values.degreeSign
+            return (temp ?? "--") + Values.degreeSign
         }
     }
     
     var shownDescription : String {
         get {
-            return description ?? "scattered clouds"
+            return description ?? ""
         }
     }
 }
