@@ -13,6 +13,7 @@ class CitiesTableViewController: UITableViewController {
     private lazy var dataSource = makeTableViewDataSource()
     let citiesViewModel : CitiesViewModel
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
