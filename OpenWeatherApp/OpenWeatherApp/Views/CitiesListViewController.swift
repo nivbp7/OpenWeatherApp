@@ -116,11 +116,14 @@ final class CitiesListViewController: UIViewController {
         let dataFetch = DataFetch(coreDataInterface: coreDataInterface)
         dataFetch.fetchAllWeatherFrom(citiesViewModel: citiesViewModel) {
             let allWeather = self.coreDataInterface.fetchAllCities()
+            
             switch allWeather {
             case .success(let cityWeatherArray):
-                for city in cityWeatherArray {
-                    print("city \(city.cityId)")
-                }
+                let cityWeatherViewModel = CityWeatherViewModel(allCitiesWeather: cityWeatherArray)
+                
+//                for city in cityWeatherArray {
+//                    print("city \(city.cityId)")
+//                }
             case .failure(_):
                 break
             }

@@ -7,3 +7,26 @@
 //
 
 import Foundation
+
+class CityWeatherViewModel {
+    
+    private var allCitiesWeather : [CityWeather]
+    
+    init(allCitiesWeather : [CityWeather]) {
+        self.allCitiesWeather = allCitiesWeather
+    }
+    
+    func cityWeather(at index : Int) -> CityWeather? {
+        if index > allCitiesWeather.count {
+            return nil
+        }
+        
+        let cityWeather = allCitiesWeather[index]
+        return cityWeather
+    }
+    
+    func numberOfCities() -> Int {
+        return allCitiesWeather.count
+    }
+    
+}
