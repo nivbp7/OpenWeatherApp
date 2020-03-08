@@ -11,15 +11,16 @@ import UIKit
 class CitiesTableViewController: UITableViewController {
     
     private lazy var dataSource = makeTableViewDataSource()
-//    let citiesViewModel : CitiesViewModel
     let cityWeatherViewModel : CityWeatherViewModel
 
+    var onIndexPathSelected : (IndexPath) -> () = {IndexPath in }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         configureTableView()
     }
+    
     
     //MARK: - init
     init(cityWeatherViewModel : CityWeatherViewModel){
@@ -38,6 +39,8 @@ class CitiesTableViewController: UITableViewController {
         tableView.rowHeight = UITableView.heightForRow
         tableView.separatorColor = .mainColor
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//        tableView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 90)
+
     }
     
     private func configureTableView() {
@@ -54,7 +57,12 @@ class CitiesTableViewController: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
+    }
+    
+    //MARK:- table view
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        onIndexPathSelected(indexPath)
     }
     
 }

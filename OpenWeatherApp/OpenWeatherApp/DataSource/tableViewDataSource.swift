@@ -10,7 +10,6 @@ import UIKit
 
 final class TableViewDataSource : NSObject, UITableViewDataSource {
     
-//    let citiesViewModel : CitiesViewModel
     let cityWeatherViewModel : CityWeatherViewModel
     
     //MARK: - init

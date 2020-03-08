@@ -37,6 +37,7 @@ final class CitiesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        configureChildViewControllers()
         layoutView()
         fetchCurrentWeather()
     }
@@ -69,6 +70,14 @@ final class CitiesListViewController: UIViewController {
         }else{
             showListView()
         }
+    }
+    
+    private func configureChildViewControllers() {
+        citiesTableViewController.onIndexPathSelected = { [weak self] indexPath in
+            self?.showCityForecast(for: indexPath)
+        }
+        
+//        CitiesGridViewController
     }
     
     //MARK: - layout
@@ -133,6 +142,15 @@ final class CitiesListViewController: UIViewController {
             }
         }
     }
+    
+    //MARK: - show detailed city forecast
+    private func showCityForecast(for indexPath : IndexPath) {
+        let cityForecastViewModel = CityForecastViewModel()
+        let cityForecastViewController = CityForecastViewController(cityForecastViewModel: cityForecastViewModel)
+        navigationController?.pushViewController(cityForecastViewController, animated: true)
+    }
+    
+    
     
     
     

@@ -16,7 +16,7 @@ class CityTableViewCell: UITableViewCell {
     let cityNameLabel = NBPLabel(textAlignment: .left, fontSize: UIFont.cityNameFont, weight: .semibold, color: .mainColor)
     let cityTempLabel = NBPLabel(textAlignment: .right, fontSize: UIFont.cityTempFont, weight: .bold, color: .mainColor)
     let cityWeatherDescriptionLabel = NBPLabel(textAlignment: .left, fontSize: UIFont.cityWeatherDescription, weight: .regular, color: .mainColor)
-    
+        
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configue()
@@ -27,18 +27,19 @@ class CityTableViewCell: UITableViewCell {
     }
     
     private func configue() {
+        selectionStyle = .none
         backgroundColor = .clear
         contentView.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = UICollectionViewCell.cellRadius
         
-        
         let leftStackView = UIStackView(arrangedSubviews: [cityNameLabel,cityWeatherDescriptionLabel])
         leftStackView.axis = .vertical
-        leftStackView.alignment = .fill
-        leftStackView.distribution = .fill
+        leftStackView.alignment = .leading
+        leftStackView.distribution = .fillEqually
+        leftStackView.translatesAutoresizingMaskIntoConstraints = false
         
         
-        let stackView = UIStackView(arrangedSubviews: [leftStackView,cityTempLabel])
+        let stackView = UIStackView(arrangedSubviews: [leftStackView, cityTempLabel])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
         stackView.alignment = .center
@@ -50,7 +51,7 @@ class CityTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UITableViewCell.cellPadding),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UITableViewCell.cellPadding + 20),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UITableViewCell.cellPadding),
+            stackView.widthAnchor.constraint(equalToConstant: contentView.frame.width),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UITableViewCell.cellPadding),
         ])
         

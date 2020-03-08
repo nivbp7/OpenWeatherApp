@@ -42,8 +42,6 @@ struct DataFetch {
         group.notify(queue: DispatchQueue.global()) {
             completion()
         }
-        
-        
     }
     
     private func fetchCurrentWetherForCityId(cityId : Int, with completion : @escaping FetchCompletion ) {

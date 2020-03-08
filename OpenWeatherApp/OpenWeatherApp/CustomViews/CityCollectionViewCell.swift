@@ -16,7 +16,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     let cityNameLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityNameFont, weight: .semibold, color: .mainColor)
     let cityTempLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityTempFont, weight: .bold, color: .mainColor)
     let cityWeatherDescriptionLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityWeatherDescription, weight: .regular, color: .mainColor)
-    
+        
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -27,6 +27,7 @@ class CityCollectionViewCell: UICollectionViewCell {
     }
     
     private func configure() {
+        
         backgroundColor = .clear
         contentView.backgroundColor = .systemBackground
         contentView.layer.borderColor = UIColor.mainColor.cgColor
@@ -37,7 +38,6 @@ class CityCollectionViewCell: UICollectionViewCell {
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .fill
-//        stackView.
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
         

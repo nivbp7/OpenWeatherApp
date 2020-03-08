@@ -17,17 +17,17 @@ struct CitiesViewModel {
         City(name: Texts.eilat, id: Values.eilatId)
     ]
     
-    func city(at index : Int) -> City? {
-        if index > numberOfCities() {
-            return nil
-        }
-        let city = cities[index]
-        return city
-    }
-    
-    func numberOfCities() -> Int {
-        return cities.count
-    }
+//    func city(at index : Int) -> City? {
+//        if index > numberOfCities() {
+//            return nil
+//        }
+//        let city = cities[index]
+//        return city
+//    }
+//    
+//    func numberOfCities() -> Int {
+//        return cities.count
+//    }
     
     func allCities() -> [City] {
         return cities
