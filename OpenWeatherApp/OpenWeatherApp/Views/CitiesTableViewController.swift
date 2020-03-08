@@ -11,8 +11,9 @@ import UIKit
 class CitiesTableViewController: UITableViewController {
     
     private lazy var dataSource = makeTableViewDataSource()
-    let citiesViewModel : CitiesViewModel
-    
+//    let citiesViewModel : CitiesViewModel
+    let cityWeatherViewModel : CityWeatherViewModel
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,8 @@ class CitiesTableViewController: UITableViewController {
     }
     
     //MARK: - init
-    init(citiesViewModel : CitiesViewModel){
-        self.citiesViewModel = citiesViewModel
+    init(cityWeatherViewModel : CityWeatherViewModel){
+        self.cityWeatherViewModel = cityWeatherViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -45,7 +46,15 @@ class CitiesTableViewController: UITableViewController {
     
     //MARK: - factory
     private func makeTableViewDataSource() -> TableViewDataSource {
-        return TableViewDataSource(citiesViewModel: citiesViewModel)
+        return TableViewDataSource(cityWeatherViewModel: cityWeatherViewModel)
+    }
+    
+    //MARK: - reload
+    func reload() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
     }
     
 }

@@ -2,7 +2,7 @@
 //  CityWeather+CoreDataClass.swift
 //  OpenWeatherApp
 //
-//  Created by niv ben-porath on 06/03/2020.
+//  Created by niv ben-porath on 08/03/2020.
 //  Copyright © 2020 nbpApps. All rights reserved.
 //
 //

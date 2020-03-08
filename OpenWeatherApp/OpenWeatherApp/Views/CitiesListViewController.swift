@@ -19,10 +19,12 @@ final class CitiesListViewController: UIViewController {
     
     let citiesViewModel : CitiesViewModel
     let coreDataInterface : CoreDataInterface
+    let cityWeatherViewModel : CityWeatherViewModel
     
     //MARK: - init
-    init(citiesViewModel : CitiesViewModel,coreDataInterface : CoreDataInterface){
+    init(citiesViewModel : CitiesViewModel,cityWeatherViewModel : CityWeatherViewModel,coreDataInterface : CoreDataInterface){
         self.citiesViewModel = citiesViewModel
+        self.cityWeatherViewModel = cityWeatherViewModel
         self.coreDataInterface = coreDataInterface
         super.init(nibName: nil, bundle: nil)
     }
@@ -42,11 +44,11 @@ final class CitiesListViewController: UIViewController {
     
     //MARK: - factory
     private func makeCitiesCollectionViewController() -> CitiesGridViewController {
-        return CitiesGridViewController(citiesViewModel: citiesViewModel)
+        return CitiesGridViewController(cityWeatherViewModel: cityWeatherViewModel)
     }
     
     private func makeCitiesTableViewController() -> CitiesTableViewController {
-        return CitiesTableViewController(citiesViewModel: citiesViewModel)
+        return CitiesTableViewController(cityWeatherViewModel: cityWeatherViewModel)
     }
     
     private func makeStateButton() -> NBPButton {
@@ -114,21 +116,25 @@ final class CitiesListViewController: UIViewController {
     //MARK: - fetch data
     private func fetchCurrentWeather() {
         let dataFetch = DataFetch(coreDataInterface: coreDataInterface)
-        dataFetch.fetchAllWeatherFrom(citiesViewModel: citiesViewModel) {
+        dataFetch.fetchAllWeatherFrom(citiesViewModel: citiesViewModel) { [weak self] in
+            guard let self = self else {return}
             let allWeather = self.coreDataInterface.fetchAllCities()
             
             switch allWeather {
             case .success(let cityWeatherArray):
-                let cityWeatherViewModel = CityWeatherViewModel(allCitiesWeather: cityWeatherArray)
-                
-//                for city in cityWeatherArray {
-//                    print("city \(city.cityId)")
-//                }
+                self.cityWeatherViewModel.updateAllCityWeather(cityWeatherArray: cityWeatherArray)
+                if self.citiesShownInGrid {
+                    self.citiesCollectionViewController.reload()
+                }else{
+                    self.citiesTableViewController.reload()
+                }
             case .failure(_):
                 break
             }
         }
     }
+    
+    
     
     
 }

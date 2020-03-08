@@ -10,16 +10,16 @@ import UIKit
 
 class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
     
-    let citiesViewModel : CitiesViewModel
+    let cityWeatherViewModel : CityWeatherViewModel
     
     //MARK: - init
-    init(citiesViewModel : CitiesViewModel) {
-        self.citiesViewModel = citiesViewModel
+    init(cityWeatherViewModel : CityWeatherViewModel) {
+        self.cityWeatherViewModel = cityWeatherViewModel
     }
     
     //MARK: - collection data source
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return citiesViewModel.numberOfCities()
+        return cityWeatherViewModel.numberOfCities()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -27,13 +27,13 @@ class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
             preconditionFailure(Texts.incorrectCell)
         }
         
-        guard let city = citiesViewModel.city(at: indexPath.row) else {
+        guard let shownWeather = cityWeatherViewModel.shownWeather(at: indexPath.row) else {
             preconditionFailure(Texts.noItemInRow)
         }
         
-        cell.cityNameLabel.text = city.name
-        cell.cityTempLabel.text = city.showTemp
-        cell.cityWeatherDescriptionLabel.text = city.shownDescription
+        cell.cityNameLabel.text = shownWeather.cityName
+        cell.cityTempLabel.text = shownWeather.cityTemp
+        cell.cityWeatherDescriptionLabel.text = shownWeather.tempDescription
         
         return cell
     }

@@ -2,7 +2,7 @@
 //  CityWeather+CoreDataProperties.swift
 //  OpenWeatherApp
 //
-//  Created by niv ben-porath on 06/03/2020.
+//  Created by niv ben-porath on 08/03/2020.
 //  Copyright © 2020 nbpApps. All rights reserved.
 //
 //
@@ -18,7 +18,9 @@ extension CityWeather {
     }
 
     @NSManaged public var cityId: NSNumber?
-    @NSManaged public var currentTemp: String?
+    @NSManaged public var currentTemp: NSNumber?
     @NSManaged public var currentTempDescription: String?
+    @NSManaged public var cityName: String?
+    @NSManaged public var lastUpdate: NSNumber?
 
 }

@@ -10,16 +10,17 @@ import UIKit
 
 final class TableViewDataSource : NSObject, UITableViewDataSource {
     
-    let citiesViewModel : CitiesViewModel
+//    let citiesViewModel : CitiesViewModel
+    let cityWeatherViewModel : CityWeatherViewModel
     
     //MARK: - init
-    init(citiesViewModel : CitiesViewModel) {
-        self.citiesViewModel = citiesViewModel
+    init(cityWeatherViewModel : CityWeatherViewModel) {
+        self.cityWeatherViewModel = cityWeatherViewModel
     }
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return citiesViewModel.numberOfCities()
+        return cityWeatherViewModel.numberOfCities()
     }
     
     
@@ -28,13 +29,13 @@ final class TableViewDataSource : NSObject, UITableViewDataSource {
             preconditionFailure(Texts.incorrectCell)
         }
         
-        guard let city = citiesViewModel.city(at: indexPath.row) else {
+        guard let shownWeather = cityWeatherViewModel.shownWeather(at: indexPath.row) else {
             preconditionFailure(Texts.noItemInRow)
         }
         
-        cell.cityNameLabel.text = city.name
-        cell.cityTempLabel.text = city.showTemp
-        cell.cityWeatherDescriptionLabel.text = city.shownDescription
+        cell.cityNameLabel.text = shownWeather.cityName
+        cell.cityTempLabel.text = shownWeather.cityTemp
+        cell.cityWeatherDescriptionLabel.text = shownWeather.tempDescription
         
         return cell
     }

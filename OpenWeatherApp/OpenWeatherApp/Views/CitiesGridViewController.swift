@@ -13,12 +13,12 @@ class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
     private lazy var collectionView = makeCollectionView()
     private lazy var dataSource = makeCollectionViewDataSource()
 
-    let citiesViewModel : CitiesViewModel
+    let cityWeatherViewModel : CityWeatherViewModel
     
     
     //MARK: - init
-    init(citiesViewModel : CitiesViewModel){
-        self.citiesViewModel = citiesViewModel
+    init(cityWeatherViewModel : CityWeatherViewModel){
+        self.cityWeatherViewModel = cityWeatherViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,7 +42,7 @@ class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
     }
     
     private func makeCollectionViewDataSource() -> CollectionViewDataSource {
-        return CollectionViewDataSource(citiesViewModel: citiesViewModel)
+        return CollectionViewDataSource(cityWeatherViewModel: cityWeatherViewModel)
     }
     
     //MARK: - cofig
@@ -56,6 +56,12 @@ class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
         collectionView.delegate = self
         collectionView.dataSource = dataSource
         collectionView.register(CityCollectionViewCell.self, forCellWithReuseIdentifier: CityCollectionViewCell.reuseId)
+    }
+    
+    func reload() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
 }

@@ -31,7 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
         let coreDataInterface = CoreDataInterface(persistentContainer: persistentContainer)
         let citiesViewModel = CitiesViewModel()
-        let citiesListViewController = CitiesListViewController(citiesViewModel: citiesViewModel, coreDataInterface: coreDataInterface)
+        let cityWeatherViewModel = CityWeatherViewModel()
+        let citiesListViewController = CitiesListViewController(citiesViewModel: citiesViewModel, cityWeatherViewModel: cityWeatherViewModel, coreDataInterface: coreDataInterface)
         return UINavigationController(rootViewController: citiesListViewController)
     }
     

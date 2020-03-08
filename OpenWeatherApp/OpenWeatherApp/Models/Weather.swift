@@ -63,10 +63,10 @@ struct CurrentWeather :Codable {
         var description : String
     }
     
+    var name : String
     var main : Main
     var id : Int
     var dt : TimeInterval
     var weather : [WeatherData]
-    
-    
 }
+

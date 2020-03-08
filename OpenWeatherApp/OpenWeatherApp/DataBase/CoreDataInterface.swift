@@ -34,14 +34,18 @@ struct CoreDataInterface {
             switch coreDataFetch {
             case .success(let cityInDataBase):
                 //we have this city in the DB
-                cityInDataBase.currentTemp = String(currentWeather.main.temp)
+                cityInDataBase.currentTemp = NSNumber(value:currentWeather.main.temp)
                 cityInDataBase.currentTempDescription = currentWeather.weather[0].description
+                cityInDataBase.lastUpdate = NSNumber(value:currentWeather.dt)
             case .failure(_):
                 //city is not in DB, so add it
                 let cityWeather = CityWeather(context: self.persistentContainer.viewContext)
                 cityWeather.cityId = NSNumber(value: currentWeather.id)
-                cityWeather.currentTemp = String(currentWeather.main.temp)
+                cityWeather.cityName = currentWeather.name
+                cityWeather.currentTemp = NSNumber(value:currentWeather.main.temp)
                 cityWeather.currentTempDescription = currentWeather.weather[0].description
+                cityWeather.lastUpdate = NSNumber(value:currentWeather.dt)
+                
             }
             
             
