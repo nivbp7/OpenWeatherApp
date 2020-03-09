@@ -11,4 +11,6 @@ import UIKit
 extension UITableView {
     static let heightForRow : CGFloat = 90.0
     static let padding : CGFloat = 10.0
+    
+    static let forecastRowHeight : CGFloat = 60.0
 }

@@ -12,4 +12,9 @@ extension UIFont {
     static let cityNameFont : CGFloat = 25.0
     static let cityTempFont : CGFloat = 40.0
     static let cityWeatherDescription : CGFloat = 20.0
+    
+    static let forecastDayFont : CGFloat = 20.0
+    static let forecstTempFont : CGFloat = 20.0
+    
+   
 }

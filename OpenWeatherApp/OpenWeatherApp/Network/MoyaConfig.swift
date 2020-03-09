@@ -9,12 +9,20 @@
 import Foundation
 import Moya
 
+//api.openweathermap.org/data/2.5/forecast?id=293397&appid=e4bb695a74b1eca68577848b1da1079d
+
+
+
+
 enum OpenWetherApi {
     static private let apiKey = "e4bb695a74b1eca68577848b1da1079d"
     static private let baseUrlString = "https://api.openweathermap.org/data/2.5"
+    
     static private let currentWeatherPath = "/weather"
+    static private let forecastPath = "/forecast"
     
     case currentWeather(cityId : Int)
+    case forecast(cityId : Int)
 }
 
 extension OpenWetherApi : TargetType {
@@ -26,6 +34,8 @@ extension OpenWetherApi : TargetType {
         switch self {
         case.currentWeather(_):
             return OpenWetherApi.currentWeatherPath
+        case .forecast:
+            return OpenWetherApi.forecastPath
         }
     }
     
@@ -40,16 +50,21 @@ extension OpenWetherApi : TargetType {
     
     var task: Task {
         // plain request, data request, parameters request, upload request and many more.
+        
+        var params : [String:Any] = [
+            "appid":OpenWetherApi.apiKey,
+            "units":"metric"
+        ]
+        
         switch self {
         case .currentWeather(let cityId):
-            return .requestParameters(parameters:
-                ["appid":OpenWetherApi.apiKey,
-                 "id":cityId,
-                 "units":"metric"
-                    
-                ],
-                encoding:URLEncoding.default)
+            params["id"] = cityId
+            
+        case .forecast(let cityId):
+            params["id"] = cityId
         }
+        
+        return .requestParameters(parameters: params, encoding: URLEncoding.default)
     }
     
     var headers: [String : String]? {

@@ -19,11 +19,13 @@ typealias DataHandlerCompletion = () -> Void
 
 struct DataFetch {
     
-    let coreDataInterface : CoreDataInterface
+    let coreDataInterface : CoreDataInterface?
 
-    init(coreDataInterface : CoreDataInterface) {
+    init(coreDataInterface : CoreDataInterface?) {
         self.coreDataInterface = coreDataInterface
     }
+    
+    //MARK: - Get weather data
     
     func fetchAllWeatherFrom(citiesViewModel : CitiesViewModel,with completion : @escaping DataHandlerCompletion) {
         
@@ -72,11 +74,59 @@ struct DataFetch {
         }
     }
     
+    //MARK: - Get forecast data
+
+    
+    func fetchForecast(for cityId : Int, with completion : @escaping DataHandlerCompletion) {
+        let moyaNetworkService = MoyaNetworkService()
+        moyaNetworkService.getForecastForCityId(cityId: cityId) { (result) in
+            switch result {
+            case .success(let data) :
+                let jsonParser = JsonParser(data: data)
+                let parsedData : Result<FullCityForecastForFiveDays,Error> = jsonParser.decode()
+                
+                switch parsedData {
+                case .success(let fullCityForecastForFiveDays):
+                    let cityForecastAggregator = CityForecastAggregator(fullCityForecastForFiveDays: fullCityForecastForFiveDays)
+                    let cityForecastForDataBase = cityForecastAggregator.aggregate()
+                    print("cityForecastForDataBase = \(cityForecastForDataBase)")
+                    self.saveCityForecast(cityForecastForDataBase: cityForecastForDataBase) { (coreDataError) in
+                        if let error = coreDataError {
+                            #warning("fix the completion to have an error?")
+                            completion()
+                        }else{
+                            completion()
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+//                print(parsedData)
+                completion()
+                
+            case .failure(let moyaError):
+                completion() // we need an error case!
+            }
+        }
+    }
+    
+    
+    
+    
     private func saveCurrentWeather(currentWeather : CurrentWeather,with completion : @escaping CoreDataCompletion) {
-        self.coreDataInterface.save(currentWeather: currentWeather) { (coreDataError) in
+        self.coreDataInterface?.save(currentWeather: currentWeather) { (coreDataError) in
             completion(coreDataError)
         }
     }
+    
+    private func saveCityForecast(cityForecastForDataBase : CityForecastForDataBase,with completion : @escaping CoreDataCompletion) {
+        self.coreDataInterface?.save(cityForecaseForDateBase: cityForecastForDataBase, with: { (coreDataError) in
+            completion(coreDataError)
+        })
+    }
+    
+    
     
     
 }

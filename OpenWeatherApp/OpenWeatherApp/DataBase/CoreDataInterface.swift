@@ -13,6 +13,8 @@ typealias CoreDataCompletion = (CoreDataError?) -> Void
 typealias CoreDataFetchCompletion = (Result<CityWeather,CoreDataError>)
 typealias CoreDataFullFetchCompletion = (Result<[CityWeather],CoreDataError>)
 
+typealias CoreDateForecastFetchCompletion = (Result<CityForecast,CoreDataError>)
+
 enum CoreDataError : Error {
     case coreDataError(errorMessage : String)
 }
@@ -26,6 +28,7 @@ struct CoreDataInterface {
     }
     
     
+    //MARK: - current weather
     func save(currentWeather : CurrentWeather, with completion : @escaping CoreDataCompletion) {
         persistentContainer.viewContext.perform {
             
@@ -45,10 +48,7 @@ struct CoreDataInterface {
                 cityWeather.currentTemp = NSNumber(value:currentWeather.main.temp)
                 cityWeather.currentTempDescription = currentWeather.weather[0].description
                 cityWeather.lastUpdate = NSNumber(value:currentWeather.dt)
-                
             }
-            
-            
             do {
                 try self.persistentContainer.viewContext.save()
                 completion(nil)
@@ -62,12 +62,13 @@ struct CoreDataInterface {
         let request = CityWeather.createFetchRequest()
         let predicate = NSPredicate(format: "cityId = %@", NSNumber(value: cityId))
         request.predicate = predicate
+       
         do {
             let cityWeatherArray = try self.persistentContainer.viewContext.fetch(request)
             if let cityWeather = cityWeatherArray.first {
                 return .success(cityWeather)
             }else{
-                return .failure(.coreDataError(errorMessage: "fetch error - no city weather"))
+                return .failure(.coreDataError(errorMessage: "fetch error - no city weather for \(String(cityId))"))
             }
         }catch{
             return .failure(.coreDataError(errorMessage: "fetch error \(error.localizedDescription)"))
@@ -83,7 +84,61 @@ struct CoreDataInterface {
         }catch{
             return .failure(.coreDataError(errorMessage: "fetch error \(error.localizedDescription)"))
         }
+    }
+    
+    //MARK: - forecast
+    
+    
+    func save(cityForecaseForDateBase : CityForecastForDataBase, with completion : @escaping CoreDataCompletion) {
         
+        persistentContainer.viewContext.perform {
+            let cityId = cityForecaseForDateBase.cityId
+            let coreDataFetch = self.fetchForecastFor(cityId: cityId)
+            switch coreDataFetch {
+            case .success(let cityInDataBase):
+                //we have the city in the DB, so now we check if we are at a new date
+                let dateInDataBase = cityInDataBase.currentDate ?? Date().startOfDay!
+                let dateFromServer = cityForecaseForDateBase.currentDate
+                if dateFromServer.isAfter(date: dateInDataBase) {
+                    //we got a new date from the server, so we need to update the DB with new values
+                    let cityForecast = CityForecast(context: self.persistentContainer.viewContext)
+                    cityForecast.cityId = cityForecaseForDateBase.cityId
+                    cityForecast.cityName = cityForecaseForDateBase.cityName
+                    cityForecast.currentDate = dateFromServer
+                    cityForecast.currectDateTemp = cityForecaseForDateBase.currectDateTemp
+                    cityForecast.firstDateTemp = cityForecaseForDateBase.firstDateTemp
+                    cityForecast.secondDateTemp = cityForecaseForDateBase.secondDateTemp
+                    cityForecast.thirdDateTemp = cityForecaseForDateBase.thirdDateTemp
+                    cityForecast.fourthDateTemp = cityForecaseForDateBase.fourthDateTemp
+                    cityForecast.fifthDayeTemp = cityForecaseForDateBase.fifthDayeTemp
+                    print(cityForecast)
+                }else{
+                    #warning("fix")
+                    //we are still on the same date, so show the previous data
+                }
+                
+            case .failure(_):
+                #warning("fix")
+                //we do not have any data in DB, so add it
+                print()
+            }
+        }
+    }
+    
+    func fetchForecastFor(cityId : NSNumber) -> CoreDateForecastFetchCompletion {
+        let request = CityForecast.createFetchRequest()
+        let predicate = NSPredicate(format: "cityId = %@", cityId)
+        request.predicate = predicate
+        do {
+            let forecastArray = try self.persistentContainer.viewContext.fetch(request)
+            if let cityForecast = forecastArray.first {
+                return .success(cityForecast)
+            }else{
+                return .failure(.coreDataError(errorMessage: "fetch error - no city forecast for \(String(cityId.intValue))"))
+            }
+        }catch{
+            return .failure(.coreDataError(errorMessage: "fetch error \(error.localizedDescription)"))
+        }
     }
     
 }

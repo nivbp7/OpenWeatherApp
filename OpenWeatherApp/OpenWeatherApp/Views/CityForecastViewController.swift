@@ -15,12 +15,25 @@ class CityForecastViewController: UIViewController {
     
     private lazy var cityNameLabel = makeCityLabel()
     private lazy var cityTempLabel = makeCityTempLabel()
+    private lazy var cityFuturetTableViewController = makeCityFuturetTableViewController()
+    
     
     //MARK: - life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         layoutView()
+        
+        let dataFetch = DataFetch(coreDataInterface: nil)
+        dataFetch.fetchForecast(for: 293397) {
+            
+        }
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        cityFuturetTableViewController.remove()
     }
     
     //MARK: - init
@@ -46,21 +59,22 @@ class CityForecastViewController: UIViewController {
         return label
     }
     
-   
+    private func makeCityFuturetTableViewController() -> CityFutureForecastTableViewController {
+        return CityFutureForecastTableViewController()
+//        return CitiesTableViewController(cityWeatherViewModel: cityWeatherViewModel)
+    }
     
     //MARK: - configure
     
     private func configureView() {
         view.backgroundColor = .mainColor
     }
-   
+    
     
     //MARK: -layout
     private func layoutView() {
-        
         view.addSubview(cityNameLabel)
         view.addSubview(cityTempLabel)
-        view.addSubview(cityForecastTableView)
         
         NSLayoutConstraint.activate([
             cityNameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: UILabel.edgePadding),
@@ -71,15 +85,12 @@ class CityForecastViewController: UIViewController {
             cityTempLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             cityTempLabel.heightAnchor.constraint(equalToConstant: UILabel.height),
             
-            cityForecastTableView.topAnchor.constraint(equalTo: cityTempLabel.bottomAnchor, constant: UILabel.edgePadding),
-//            cityForecastTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-//            cityForecastTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-//            cityForecastTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-
-
-        
         ])
+        
+        add(cityFuturetTableViewController, below: cityTempLabel, withPadding: UILabel.edgePadding)
     }
+    
+    
     
     
     

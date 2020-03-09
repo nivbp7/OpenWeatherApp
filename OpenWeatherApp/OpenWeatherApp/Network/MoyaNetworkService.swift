@@ -12,7 +12,6 @@ import Moya
 typealias MoyaCompletion = (Result<Data,Error>) -> Void
 
 struct MoyaNetworkService {
-    
     func getCurrentWeatherForCityId(cityId : Int, with completion : @escaping MoyaCompletion) {
         let moyaProvider = MoyaProvider<OpenWetherApi>()
         moyaProvider.request(.currentWeather(cityId: cityId)) { (result) in
@@ -25,4 +24,17 @@ struct MoyaNetworkService {
             }
         }
     }
+    
+    func getForecastForCityId(cityId : Int, with completion : @escaping MoyaCompletion) {
+        let moyaProvider = MoyaProvider<OpenWetherApi>()
+        moyaProvider.request(.forecast(cityId: cityId)) { (result) in
+            switch result {
+            case .success(let responce):
+                completion(.success(responce.data))
+            case .failure(let moyaError):
+                completion(.failure(moyaError))
+            }
+        }
+    }
+    
 }

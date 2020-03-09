@@ -10,21 +10,46 @@ import UIKit
 
 class CityFutureForecastTableViewController: UITableViewController {
 
+    private lazy var dataSource = makeTableViewDataSource()
+//    let cityWeatherViewModel : CityWeatherViewModel
+
+    var onIndexPathSelected : (IndexPath) -> () = {IndexPath in }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureView()
+        configureTableView()
+    }
+    
+    
+    //MARK: - init
+    init(){//cityWeatherViewModel : CityWeatherViewModel){
+//        self.cityWeatherViewModel = cityWeatherViewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError(Texts.noStoryboardImplementation)
+    }
+    
+    //MARK: - config
+    private func configureView() {
+        view.backgroundColor = .mainColor
+        tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: ForecastTableViewCell.reuseId)
+        tableView.rowHeight = UITableView.forecastRowHeight
+        tableView.separatorColor = .mainColor
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    private func configureTableView() {
+        tableView.dataSource = dataSource
+    }
+    
+    //MARK: - factory
+    private func makeTableViewDataSource() -> CityForecastViewModel {
+        return CityForecastViewModel()
+//        return TableViewDataSource(cityWeatherViewModel: cityWeatherViewModel)
         
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
     }
 
    

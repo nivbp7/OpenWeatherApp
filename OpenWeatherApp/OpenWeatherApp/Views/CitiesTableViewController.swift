@@ -39,8 +39,6 @@ class CitiesTableViewController: UITableViewController {
         tableView.rowHeight = UITableView.heightForRow
         tableView.separatorColor = .mainColor
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-//        tableView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 90)
-
     }
     
     private func configureTableView() {
@@ -61,7 +59,6 @@ class CitiesTableViewController: UITableViewController {
     
     //MARK:- table view
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
         onIndexPathSelected(indexPath)
     }
     

@@ -41,16 +41,17 @@ class CityTableViewCell: UITableViewCell {
         
         let stackView = UIStackView(arrangedSubviews: [leftStackView, cityTempLabel])
         stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillEqually
         stackView.alignment = .center
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(stackView)
-        
+
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UITableViewCell.cellPadding),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UITableViewCell.cellPadding + 20),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UITableViewCell.cellPadding),
             stackView.widthAnchor.constraint(equalToConstant: contentView.frame.width),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UITableViewCell.cellPadding),
         ])
