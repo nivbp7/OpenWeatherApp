@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum DateFormatingType : String {
+    case fullDate = "yyyy-MM-dd HH:mm:ss"
+    case time = "HH:mm:ss"
+}
 
 extension Date {
     var startOfDay : Date? {
@@ -42,5 +46,12 @@ extension Date {
             }
         }
         return nil
+    }
+    
+    func toString(with formatingType : DateFormatingType) -> String {
+        let formater = DateFormatter()
+        formater.dateFormat = formatingType.rawValue
+        let dateString = formater.string(from: self)
+        return dateString
     }
 }

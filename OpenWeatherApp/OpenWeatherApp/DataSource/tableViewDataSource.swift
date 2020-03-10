@@ -33,6 +33,7 @@ final class TableViewDataSource : NSObject, UITableViewDataSource {
         cell.cityNameLabel.text = shownWeather.cityName
         cell.cityTempLabel.text = shownWeather.cityTemp
         cell.cityWeatherDescriptionLabel.text = shownWeather.tempDescription
+        cell.lastUpdateLabel.text = shownWeather.lastUpdate
         
         return cell
     }

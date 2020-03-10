@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
+final class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
     
     private lazy var collectionView = makeCollectionView()
     private lazy var dataSource = makeCollectionViewDataSource()

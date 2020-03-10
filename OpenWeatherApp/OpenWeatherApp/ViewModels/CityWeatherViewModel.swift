@@ -13,10 +13,11 @@ struct ShownWeather {
     var cityTemp : String
     var tempDescription : String
     var cityId : NSNumber
+    var lastUpdate : String
 }
 
 
-class CityWeatherViewModel {
+final class CityWeatherViewModel {
     
     private var allCitiesWeather = [CityWeather]()
     
@@ -40,7 +41,12 @@ class CityWeatherViewModel {
         let tempDescription = cityWeather.currentTempDescription ?? ""
         let cityId = cityWeather.cityId ?? NSNumber(value: 0)
         
-        let shownWeather = ShownWeather(cityName: cityName, cityTemp: cityTemp, tempDescription: tempDescription, cityId: cityId)
+        var lastUpdateString = Texts.updated + "--:--"
+        if let timeInteravl = cityWeather.lastUpdate?.doubleValue {
+            lastUpdateString = Texts.updated + Date(timeIntervalSince1970:timeInteravl).toString(with: .time)
+        }
+        
+        let shownWeather = ShownWeather(cityName: cityName, cityTemp: cityTemp, tempDescription: tempDescription, cityId: cityId, lastUpdate: lastUpdateString)
         return shownWeather
     }
     

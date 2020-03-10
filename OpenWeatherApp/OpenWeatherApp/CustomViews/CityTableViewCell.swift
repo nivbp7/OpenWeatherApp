@@ -9,7 +9,7 @@
 import UIKit
 import MyViewsCustomized
 
-class CityTableViewCell: UITableViewCell {
+final class CityTableViewCell: UITableViewCell {
     
     static let reuseId = "CityCell"
     
@@ -18,6 +18,9 @@ class CityTableViewCell: UITableViewCell {
     let cityNameLabel = NBPLabel(textAlignment: .left, fontSize: UIFont.cityNameFont, weight: .semibold, color: .mainColor)
     let cityTempLabel = NBPLabel(textAlignment: .right, fontSize: UIFont.cityTempFont, weight: .bold, color: .mainColor)
     let cityWeatherDescriptionLabel = NBPLabel(textAlignment: .left, fontSize: UIFont.cityWeatherDescription, weight: .regular, color: .mainColor)
+    
+    let lastUpdateLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityLastUpdate, weight: .light, color: .mainColor)
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -40,8 +43,13 @@ class CityTableViewCell: UITableViewCell {
         leftStackView.distribution = .fillEqually
         leftStackView.translatesAutoresizingMaskIntoConstraints = false
         
+        let rightStackView = UIStackView(arrangedSubviews: [cityTempLabel,lastUpdateLabel])
+        rightStackView.axis = .vertical
+        rightStackView.alignment = .trailing
+        rightStackView.distribution = .fillProportionally
+        rightStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let stackView = UIStackView(arrangedSubviews: [leftStackView, cityTempLabel])
+        let stackView = UIStackView(arrangedSubviews: [leftStackView, rightStackView])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         stackView.alignment = .center

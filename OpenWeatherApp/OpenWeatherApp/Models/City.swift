@@ -8,7 +8,7 @@
 
 import Foundation
 
-class City {
+struct City {
     let name : String
     let id : Int
     

@@ -39,7 +39,7 @@ struct CoreDataInterface {
                 //we have this city in the DB
                 cityInDataBase.currentTemp = NSNumber(value:currentWeather.main.temp)
                 cityInDataBase.currentTempDescription = currentWeather.weather[0].description
-                cityInDataBase.lastUpdate = NSNumber(value:currentWeather.dt)
+                cityInDataBase.lastUpdate = NSNumber(value:Date().timeIntervalSince1970)// NSNumber(value:currentWeather.dt)
             case .failure(_):
                 //city is not in DB, so add it
                 let cityWeather = CityWeather(context: self.persistentContainer.viewContext)

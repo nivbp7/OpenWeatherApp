@@ -9,13 +9,15 @@
 import UIKit
 import MyViewsCustomized
 
-class CityCollectionViewCell: UICollectionViewCell {
+final class CityCollectionViewCell: UICollectionViewCell {
     
     static let reuseId = "CityCell"
     
     let cityNameLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityNameFont, weight: .semibold, color: .mainColor)
     let cityTempLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityTempFont, weight: .bold, color: .mainColor)
     let cityWeatherDescriptionLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityWeatherDescription, weight: .regular, color: .mainColor)
+    
+    let lastUpdateLabel = NBPLabel(textAlignment: .center, fontSize: UIFont.cityLastUpdate, weight: .light, color: .mainColor)
         
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +36,7 @@ class CityCollectionViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = UICollectionViewCell.cellRadius
         contentView.layer.borderWidth = UICollectionViewCell.cellBorderWidth
         
-        let stackView = UIStackView(arrangedSubviews: [cityNameLabel,cityTempLabel,cityWeatherDescriptionLabel])
+        let stackView = UIStackView(arrangedSubviews: [cityNameLabel,cityTempLabel,cityWeatherDescriptionLabel,lastUpdateLabel])
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
         stackView.alignment = .fill

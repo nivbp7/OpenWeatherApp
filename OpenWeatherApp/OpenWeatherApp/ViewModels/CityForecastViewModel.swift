@@ -14,7 +14,7 @@ struct CityForecastForDay {
 }
 
 
-class CityForecastViewModel : NSObject {
+final class CityForecastViewModel : NSObject {
     
     private var cityForcast : CityForecast
     private lazy var cityForcastArray = createCityForecastForDatesArray()

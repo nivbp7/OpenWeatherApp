@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CitiesTableViewController: UITableViewController {
+final class CitiesTableViewController: UITableViewController {
     
     private lazy var dataSource = makeTableViewDataSource()
     let cityWeatherViewModel : CityWeatherViewModel

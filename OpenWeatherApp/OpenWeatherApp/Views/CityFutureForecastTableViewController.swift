@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CityFutureForecastTableViewController: UITableViewController {
+final class CityFutureForecastTableViewController: UITableViewController {
     
     let cityForecastViewModel : CityForecastViewModel
     

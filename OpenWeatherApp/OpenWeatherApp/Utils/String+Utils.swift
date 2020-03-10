@@ -8,9 +8,7 @@
 
 import Foundation
 
-enum DateFormatingType : String {
-    case fullDate = "yyyy-MM-dd HH:mm:ss"
-}
+
 
 extension String {
     func toDate(with formatingType : DateFormatingType) -> Date? {

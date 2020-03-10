@@ -9,7 +9,7 @@
 import UIKit
 import MyViewsCustomized
 
-class ForecastTableViewCell: UITableViewCell {
+final class ForecastTableViewCell: UITableViewCell {
     
     static let reuseId = "ForecastCell"
     

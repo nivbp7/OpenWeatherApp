@@ -30,4 +30,7 @@ struct Texts {
     static let incorrectCell = "Incorrect cell setup for collection view"
     static let noItemInRow = "No itme for this row"
     
+    //MARK: - weather related
+    static let updated = "Updated: "
+    
 }

@@ -9,7 +9,7 @@
 import UIKit
 import MyViewsCustomized
 
-class CityForecastViewController: UIViewController {
+final class CityForecastViewController: UIViewController {
     
     let coreDataInterface : CoreDataInterface
     let shownCityViewModel : ShownCityViewModel
@@ -29,6 +29,10 @@ class CityForecastViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         cityFuturetTableViewController?.remove()
     }
     
