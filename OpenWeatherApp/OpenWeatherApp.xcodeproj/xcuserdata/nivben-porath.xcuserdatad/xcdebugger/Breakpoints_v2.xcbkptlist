@@ -25,8 +25,8 @@
             filePath = "OpenWeatherApp/CustomViews/ForecastTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "configue()"
             landmarkType = "7">
          </BreakpointContent>
@@ -41,8 +41,8 @@
             filePath = "OpenWeatherApp/Network/DataFetch.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "fetchForecast(for:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -57,8 +57,8 @@
             filePath = "OpenWeatherApp/Network/DataFetch.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "saveCityForecast(cityForecastForDataBase:with:)"
             landmarkType = "7">
             <Locations>
@@ -73,9 +73,9 @@
                   urlString = "file:///Users/nivben-porath/Documents/0_CODE/JobApps/Walla/OpenWeatherApp/OpenWeatherApp/OpenWeatherApp/Network/DataFetch.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
-                  offsetFromSymbolStart = "136">
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "148">
                </Location>
                <Location
                   uuid = "C83AEEE6-18CF-45D6-92E5-4F91DE3510BD - 750b674a1d22df16"
@@ -88,9 +88,9 @@
                   urlString = "file:///Users/nivben-porath/Documents/0_CODE/JobApps/Walla/OpenWeatherApp/OpenWeatherApp/OpenWeatherApp/Network/DataFetch.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "120"
-                  endingLineNumber = "120"
-                  offsetFromSymbolStart = "121">
+                  startingLineNumber = "124"
+                  endingLineNumber = "124"
+                  offsetFromSymbolStart = "128">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -105,8 +105,8 @@
             filePath = "OpenWeatherApp/Network/DataFetch.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
             landmarkName = "saveCityForecast(cityForecastForDataBase:with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -121,8 +121,8 @@
             filePath = "OpenWeatherApp/Network/DataFetch.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "saveCurrentWeather(currentWeather:with:)"
             landmarkType = "7">
             <Locations>
@@ -188,6 +188,118 @@
             startingLineNumber = "32"
             endingLineNumber = "32"
             landmarkName = "isAfterNoon()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "601E6FA2-671C-4232-A605-4114189765E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenWeatherApp/Network/MoyaNetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "getCurrentWeatherForCityId(cityId:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "601E6FA2-671C-4232-A605-4114189765E5 - f6bb9daf28690226"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in OpenWeatherApp.MoyaNetworkService.getCurrentWeatherForCityId(cityId: Swift.Int, with: (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "OpenWeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nivben-porath/Documents/0_CODE/JobApps/Walla/OpenWeatherApp/OpenWeatherApp/OpenWeatherApp/Network/MoyaNetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "601E6FA2-671C-4232-A605-4114189765E5 - f6bb9daf28690226"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Moya.Response, Moya.MoyaError&gt;) -&gt; () in OpenWeatherApp.MoyaNetworkService.getCurrentWeatherForCityId(cityId: Swift.Int, with: (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "OpenWeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nivben-porath/Documents/0_CODE/JobApps/Walla/OpenWeatherApp/OpenWeatherApp/OpenWeatherApp/Network/MoyaNetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "284">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0132E298-117F-49AC-8963-8E83DB8147BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenWeatherApp/Network/DataFetch.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "fetchCurrentWetherForCityId(cityId:with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0132E298-117F-49AC-8963-8E83DB8147BD - c21a787b1cbaa943"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "OpenWeatherApp.DataFetch.(fetchCurrentWetherForCityId in _EDA392E400051D7ED67EB981763A66CC)(cityId: Swift.Int, with: (Swift.Optional&lt;OpenWeatherApp.FetchError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "OpenWeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nivben-porath/Documents/0_CODE/JobApps/Walla/OpenWeatherApp/OpenWeatherApp/OpenWeatherApp/Network/DataFetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "0132E298-117F-49AC-8963-8E83DB8147BD - 5f66ec094b9d32db"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Swift.Error&gt;) -&gt; () in OpenWeatherApp.DataFetch.(fetchCurrentWetherForCityId in _EDA392E400051D7ED67EB981763A66CC)(cityId: Swift.Int, with: (Swift.Optional&lt;OpenWeatherApp.FetchError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "OpenWeatherApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nivben-porath/Documents/0_CODE/JobApps/Walla/OpenWeatherApp/OpenWeatherApp/OpenWeatherApp/Network/DataFetch.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "340">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02F9D06F-71C3-4B90-9F93-124B85BE9C31"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OpenWeatherApp/Network/DataFetch.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "fetchCurrentWetherForCityId(cityId:with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

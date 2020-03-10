@@ -9,6 +9,6 @@
 import UIKit
 
 extension UITableViewCell {
-    static let cellPadding : CGFloat = 10.0
+    static let cellPadding : CGFloat = 20.0
     static let cellRadius : CGFloat = 20.0
 }

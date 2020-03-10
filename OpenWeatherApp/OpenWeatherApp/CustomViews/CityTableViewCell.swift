@@ -13,10 +13,12 @@ class CityTableViewCell: UITableViewCell {
     
     static let reuseId = "CityCell"
     
+    let containerView = UIView(frame: .zero)
+    
     let cityNameLabel = NBPLabel(textAlignment: .left, fontSize: UIFont.cityNameFont, weight: .semibold, color: .mainColor)
     let cityTempLabel = NBPLabel(textAlignment: .right, fontSize: UIFont.cityTempFont, weight: .bold, color: .mainColor)
     let cityWeatherDescriptionLabel = NBPLabel(textAlignment: .left, fontSize: UIFont.cityWeatherDescription, weight: .regular, color: .mainColor)
-        
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configue()
@@ -29,7 +31,7 @@ class CityTableViewCell: UITableViewCell {
     private func configue() {
         selectionStyle = .none
         backgroundColor = .clear
-        contentView.backgroundColor = .systemBackground
+        contentView.backgroundColor = .clear
         contentView.layer.cornerRadius = UICollectionViewCell.cellRadius
         
         let leftStackView = UIStackView(arrangedSubviews: [cityNameLabel,cityWeatherDescriptionLabel])
@@ -44,16 +46,27 @@ class CityTableViewCell: UITableViewCell {
         stackView.distribution = .fillEqually
         stackView.alignment = .center
         
-        addSubview(stackView)
-
+        containerView.backgroundColor = .systemBackground
+        containerView.layer.cornerRadius = UICollectionViewCell.cellRadius
+        
+        contentView.addSubview(containerView)
+        containerView.addSubview(stackView)
+        
+        containerView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UITableViewCell.cellPadding),
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UITableViewCell.cellPadding),
-            stackView.widthAnchor.constraint(equalToConstant: contentView.frame.width),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UITableViewCell.cellPadding),
+            
+            stackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: UITableViewCell.cellPadding/2),
+            stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: UITableViewCell.cellPadding),
+            stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -UITableViewCell.cellPadding),
+            stackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -UITableViewCell.cellPadding/2),
+            
+            containerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UITableViewCell.cellPadding/2),
+            containerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UITableViewCell.cellPadding),
+            containerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UITableViewCell.cellPadding),
+            containerView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UITableViewCell.cellPadding/2),
         ])
     }
 }

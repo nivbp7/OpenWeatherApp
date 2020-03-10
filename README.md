@@ -24,6 +24,7 @@ Known Issues
 
 * loading indecators need to be added
 
+* UI bug where the next 5 days cells are not adjusting to different screens
 
 
 

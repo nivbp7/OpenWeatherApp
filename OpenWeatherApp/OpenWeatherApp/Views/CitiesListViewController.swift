@@ -127,8 +127,9 @@ final class CitiesListViewController: UIViewController {
     //MARK: - fetch data
     private func fetchCurrentWeather() {
         let dataFetch = DataFetch(coreDataInterface: coreDataInterface)
-        dataFetch.fetchAllWeatherFrom(citiesViewModel: citiesViewModel) { [weak self] in
+        dataFetch.fetchAllWeatherFrom(citiesViewModel: citiesViewModel) { [weak self] (error)  in
             guard let self = self else {return}
+            
             let allWeather = self.coreDataInterface.fetchAllCities()
             
             switch allWeather {

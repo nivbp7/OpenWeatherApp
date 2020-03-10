@@ -15,7 +15,7 @@ enum FetchError :Error {
 }
 
 typealias FetchCompletion =  (FetchError?) -> Void
-typealias DataHandlerCompletion = () -> Void
+typealias DataHandlerCompletion = (Error?) -> Void
 typealias ForecastFetchCompletion = (FetchError?) -> Void
 
 struct DataFetch {
@@ -29,13 +29,13 @@ struct DataFetch {
     //MARK: - Get weather data
     
     func fetchAllWeatherFrom(citiesViewModel : CitiesViewModel,with completion : @escaping DataHandlerCompletion) {
-        
         let group = DispatchGroup()
-        
+        var anyFetchError : FetchError?
         for city in citiesViewModel.allCities() {
             group.enter()
             fetchCurrentWetherForCityId(cityId: city.id) { (fetchError) in
                 if let error = fetchError {
+                    anyFetchError = fetchError
                     print(error.localizedDescription)
                 }
                 group.leave()
@@ -43,7 +43,11 @@ struct DataFetch {
         }
         
         group.notify(queue: DispatchQueue.global()) {
-            completion()
+            if let err = anyFetchError {
+                completion(err)
+            }else{
+                completion(nil)
+            }
         }
     }
     
