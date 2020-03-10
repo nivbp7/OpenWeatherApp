@@ -88,7 +88,6 @@ struct CoreDataInterface {
     
     //MARK: - forecast
     func save(cityForecaseForDateBase : CityForecastForDataBase, with completion : @escaping CoreDataCompletion) {
-        print("saveing")
         persistentContainer.viewContext.perform {
             let cityId = cityForecaseForDateBase.cityId
             let coreDataFetch = self.fetchForecastFor(cityId: cityId)
@@ -123,8 +122,6 @@ struct CoreDataInterface {
         cityForecast.thirdDateTemp = cityForecaseForDateBase.thirdDateTemp
         cityForecast.fourthDateTemp = cityForecaseForDateBase.fourthDateTemp
         cityForecast.fifthDayeTemp = cityForecaseForDateBase.fifthDayeTemp
-        print("cityForecast \(cityForecast)")
-        print("cityForecaseForDateBase \(cityForecaseForDateBase)")
     }
     
     func checkIfUpdateRequired(for cityID : NSNumber) -> Bool {
@@ -135,7 +132,7 @@ struct CoreDataInterface {
         case .success(let cityForecast):
             let currentStartOfDay = Date().startOfDay!
             if let dataBaseCurrentStartOfDay = cityForecast.currentDate?.startOfDay {
-                if currentStartOfDay.isAfter(date: dataBaseCurrentStartOfDay) {//if the current date is after the date saved in DB, get an update
+                if currentStartOfDay.isAfter(date: dataBaseCurrentStartOfDay, with: .day) {//if the current date is after the date saved in DB, get an update
                     return true
                 }else{
                     return false //the current date is saved in the DB, so we don't need an update

@@ -37,6 +37,8 @@ struct CityForecastAggregator {
         
         let currentDate = fullCityForecastForFiveDays.list.first?.dtTxt.toDate(with: .fullDate)?.startOfDay ?? Date().startOfDay!
         
+       
+        
         var currectDateTemp : NSNumber?
         var firstDateTemp : NSNumber?
         var secondDateTemp : NSNumber?
@@ -45,7 +47,20 @@ struct CityForecastAggregator {
         var fifthDateTemp : NSNumber?
         var currentDay = 0
         
+        if let isAfterNoon = fullCityForecastForFiveDays.list.first?.dtTxt.toDate(with: .fullDate)?.isAfterNoon(), isAfterNoon {
+            currentDay = 1
+            if let currectTemp = fullCityForecastForFiveDays.list.first?.main.temp {
+                currectDateTemp = NSNumber(value: currectTemp)
+            }
+        }
+        
+        
         for cityForcast in fullCityForecastForFiveDays.list {
+            
+            //we need to check if the first item is before or after 12:00
+            //if it is before 12:00, we will use today's 12:00 temp as today's current temp
+            //if it is after 12:00, we will use the first itme's temp as today's current temp
+            
             let dateText = cityForcast.dtTxt
             if dateText.contains("12:00:00") {
                 //we search only for the temp at noon

@@ -90,7 +90,6 @@ struct DataFetch {
                 case .success(let fullCityForecastForFiveDays):
                     let cityForecastAggregator = CityForecastAggregator(fullCityForecastForFiveDays: fullCityForecastForFiveDays)
                     let cityForecastForDataBase = cityForecastAggregator.aggregate()
-                    print("agg = \(cityForecastForDataBase)")
                     self.saveCityForecast(cityForecastForDataBase: cityForecastForDataBase) { (coreDataError) in
                         if let error = coreDataError {
                             completion(.saveError(errorMessage: error.localizedDescription))
