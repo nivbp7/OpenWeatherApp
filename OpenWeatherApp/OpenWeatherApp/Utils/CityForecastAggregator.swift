@@ -42,7 +42,7 @@ struct CityForecastAggregator {
         var secondDateTemp : NSNumber?
         var thirdDateTemp : NSNumber?
         var fourthDateTemp : NSNumber?
-        var fifthDayeTemp : NSNumber?
+        var fifthDateTemp : NSNumber?
         var currentDay = 0
         
         for cityForcast in fullCityForecastForFiveDays.list {
@@ -61,7 +61,7 @@ struct CityForecastAggregator {
                 case 4:
                     fourthDateTemp = NSNumber(value:cityForcast.main.temp)
                 case 5:
-                    fifthDayeTemp = NSNumber(value:cityForcast.main.temp)
+                    fifthDateTemp = NSNumber(value:cityForcast.main.temp)
                     
                 default:
                     break
@@ -71,7 +71,14 @@ struct CityForecastAggregator {
             }
         }
         
-        let cityForecastForDataBase = CityForecastForDataBase(cityId: cityId, cityName: cityName, currentDate: currentDate, currectDateTemp: currectDateTemp, firstDateTemp: firstDateTemp, secondDateTemp: secondDateTemp, thirdDateTemp: thirdDateTemp, fourthDateTemp: fourthDateTemp, fifthDayeTemp: fifthDayeTemp)
+        //this is for cases where we did not get back a value for the fifth day at noon, so we take the last value for that date
+        if fifthDateTemp == nil {
+            if let day5temp = fullCityForecastForFiveDays.list.last?.main.temp {
+                fifthDateTemp = NSNumber(value:day5temp)
+            }
+        }
+        
+        let cityForecastForDataBase = CityForecastForDataBase(cityId: cityId, cityName: cityName, currentDate: currentDate, currectDateTemp: currectDateTemp, firstDateTemp: firstDateTemp, secondDateTemp: secondDateTemp, thirdDateTemp: thirdDateTemp, fourthDateTemp: fourthDateTemp, fifthDayeTemp: fifthDateTemp)
         
         return cityForecastForDataBase
     }

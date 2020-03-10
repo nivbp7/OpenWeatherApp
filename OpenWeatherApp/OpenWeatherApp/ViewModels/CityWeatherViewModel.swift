@@ -12,6 +12,7 @@ struct ShownWeather {
     var cityName : String
     var cityTemp : String
     var tempDescription : String
+    var cityId : NSNumber
 }
 
 
@@ -24,9 +25,10 @@ class CityWeatherViewModel {
         allCitiesWeather = cityWeatherArray
     }
     
-    func shownWeather(at index : Int) -> ShownWeather? {
-        if index > allCitiesWeather.count {
-            return nil
+    func shownWeather(at index : Int) -> ShownWeather {
+        
+        guard index < allCitiesWeather.count else {
+            preconditionFailure(Texts.noItemInRow)
         }
         
         let cityWeather = allCitiesWeather[index]
@@ -36,7 +38,9 @@ class CityWeatherViewModel {
             cityTemp = String(Int(truncating: currentTemp)) + Values.degreeSign
         }
         let tempDescription = cityWeather.currentTempDescription ?? ""
-        let shownWeather = ShownWeather(cityName: cityName, cityTemp: cityTemp, tempDescription: tempDescription)
+        let cityId = cityWeather.cityId ?? NSNumber(value: 0)
+        
+        let shownWeather = ShownWeather(cityName: cityName, cityTemp: cityTemp, tempDescription: tempDescription, cityId: cityId)
         return shownWeather
     }
     

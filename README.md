@@ -15,10 +15,14 @@ Notes:
 * UI is implemented in code
 * Custom views were used from an SPM I wrote - https://github.com/nbpapps/MyViewsCustomized 
 
-Bugs and Issues
+Known Issues
 * Data was saved to core data. The implementation was done with only two entities with no relations between them. A different approch could have been to create a City entity and have a relation to a Weather entity for the current weather and also a relation between City and a Forecast entity. The Forecast entity could also have a relation to an array of Weather entities (for the 5 days)
 
+*  Implementation for the case for not getting a "day of the week" (in CityForecastViewModel) is missing 
+
 * All errors are handled. They are not presented in the UI
+
+* loading indecators need to be added
 
 
 

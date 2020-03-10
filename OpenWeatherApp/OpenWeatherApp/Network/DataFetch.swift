@@ -16,6 +16,7 @@ enum FetchError :Error {
 
 typealias FetchCompletion =  (FetchError?) -> Void
 typealias DataHandlerCompletion = () -> Void
+typealias ForecastFetchCompletion = (FetchError?) -> Void
 
 struct DataFetch {
     
@@ -74,10 +75,10 @@ struct DataFetch {
         }
     }
     
-    //MARK: - Get forecast data
-
     
-    func fetchForecast(for cityId : Int, with completion : @escaping DataHandlerCompletion) {
+    //MARK: - Get forecast data
+    
+    func fetchForecast(for cityId : Int, with completion : @escaping ForecastFetchCompletion) {
         let moyaNetworkService = MoyaNetworkService()
         moyaNetworkService.getForecastForCityId(cityId: cityId) { (result) in
             switch result {
@@ -89,24 +90,20 @@ struct DataFetch {
                 case .success(let fullCityForecastForFiveDays):
                     let cityForecastAggregator = CityForecastAggregator(fullCityForecastForFiveDays: fullCityForecastForFiveDays)
                     let cityForecastForDataBase = cityForecastAggregator.aggregate()
-                    print("cityForecastForDataBase = \(cityForecastForDataBase)")
+                    print("agg = \(cityForecastForDataBase)")
                     self.saveCityForecast(cityForecastForDataBase: cityForecastForDataBase) { (coreDataError) in
                         if let error = coreDataError {
-                            #warning("fix the completion to have an error?")
-                            completion()
+                            completion(.saveError(errorMessage: error.localizedDescription))
                         }else{
-                            completion()
+                            completion(nil)
                         }
                     }
                     
-                case .failure(let error):
-                    print(error)
+                case .failure(let parseError):
+                    completion(.parserError(errorMessage: parseError.localizedDescription))
                 }
-//                print(parsedData)
-                completion()
-                
             case .failure(let moyaError):
-                completion() // we need an error case!
+                completion(.networkError(errorMessage: moyaError.localizedDescription))
             }
         }
     }

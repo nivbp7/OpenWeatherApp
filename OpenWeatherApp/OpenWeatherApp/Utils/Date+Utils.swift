@@ -8,14 +8,14 @@
 
 import Foundation
 
+
 extension Date {
     var startOfDay : Date? {
         return Calendar.current.startOfDay(for: self)
+    }
     
-//    let cal = Calendar.current
-//        let dateOnlyComp = cal.dateComponents([.day,.month,.year], from: self)
-//        let dateOnly = cal.date(from: dateOnlyComp)
-//        return dateOnly
+    var dayOfTheWeekInt : Int {
+        return Calendar.current.component(.weekday, from: self)
     }
     
     func isAfter(date : Date) -> Bool {
@@ -27,5 +27,7 @@ extension Date {
             return true
         }
     }
+    
+    
     
 }

@@ -77,7 +77,9 @@ final class CitiesListViewController: UIViewController {
             self?.showCityForecast(for: indexPath)
         }
         
-//        CitiesGridViewController
+        citiesCollectionViewController.onIndexPathSelected = { [weak self] inndexPAth in
+            self?.showCityForecast(for: inndexPAth)
+        }        
     }
     
     //MARK: - layout
@@ -145,8 +147,9 @@ final class CitiesListViewController: UIViewController {
     
     //MARK: - show detailed city forecast
     private func showCityForecast(for indexPath : IndexPath) {
-        let cityForecastViewModel = CityForecastViewModel()
-        let cityForecastViewController = CityForecastViewController(cityForecastViewModel: cityForecastViewModel)
+        let cityWeather = cityWeatherViewModel.shownWeather(at: indexPath.row)
+        let showCityViewModel = ShownCityViewModel(cityName: cityWeather.cityName, cityTemp: cityWeather.cityTemp, cityId: cityWeather.cityId)
+        let cityForecastViewController = CityForecastViewController(coreDataInterface: coreDataInterface, shownCityViewModel: showCityViewModel)
         navigationController?.pushViewController(cityForecastViewController, animated: true)
     }
     

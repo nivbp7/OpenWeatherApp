@@ -27,9 +27,7 @@ class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
             preconditionFailure(Texts.incorrectCell)
         }
         
-        guard let shownWeather = cityWeatherViewModel.shownWeather(at: indexPath.row) else {
-            preconditionFailure(Texts.noItemInRow)
-        }
+        let shownWeather = cityWeatherViewModel.shownWeather(at: indexPath.row)
         
         cell.cityNameLabel.text = shownWeather.cityName
         cell.cityTempLabel.text = shownWeather.cityTemp

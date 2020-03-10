@@ -15,6 +15,7 @@ class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
 
     let cityWeatherViewModel : CityWeatherViewModel
     
+    var onIndexPathSelected : (IndexPath) -> () = {IndexPath in }
     
     //MARK: - init
     init(cityWeatherViewModel : CityWeatherViewModel){
@@ -62,6 +63,10 @@ class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        onIndexPathSelected(indexPath)
     }
     
 }

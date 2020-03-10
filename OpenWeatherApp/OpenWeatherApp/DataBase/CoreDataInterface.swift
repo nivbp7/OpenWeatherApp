@@ -62,7 +62,7 @@ struct CoreDataInterface {
         let request = CityWeather.createFetchRequest()
         let predicate = NSPredicate(format: "cityId = %@", NSNumber(value: cityId))
         request.predicate = predicate
-       
+        
         do {
             let cityWeatherArray = try self.persistentContainer.viewContext.fetch(request)
             if let cityWeather = cityWeatherArray.first {
@@ -87,43 +87,66 @@ struct CoreDataInterface {
     }
     
     //MARK: - forecast
-    
-    
     func save(cityForecaseForDateBase : CityForecastForDataBase, with completion : @escaping CoreDataCompletion) {
-        
+        print("saveing")
         persistentContainer.viewContext.perform {
             let cityId = cityForecaseForDateBase.cityId
             let coreDataFetch = self.fetchForecastFor(cityId: cityId)
+            
             switch coreDataFetch {
             case .success(let cityInDataBase):
-                //we have the city in the DB, so now we check if we are at a new date
-                let dateInDataBase = cityInDataBase.currentDate ?? Date().startOfDay!
-                let dateFromServer = cityForecaseForDateBase.currentDate
-                if dateFromServer.isAfter(date: dateInDataBase) {
-                    //we got a new date from the server, so we need to update the DB with new values
-                    let cityForecast = CityForecast(context: self.persistentContainer.viewContext)
-                    cityForecast.cityId = cityForecaseForDateBase.cityId
-                    cityForecast.cityName = cityForecaseForDateBase.cityName
-                    cityForecast.currentDate = dateFromServer
-                    cityForecast.currectDateTemp = cityForecaseForDateBase.currectDateTemp
-                    cityForecast.firstDateTemp = cityForecaseForDateBase.firstDateTemp
-                    cityForecast.secondDateTemp = cityForecaseForDateBase.secondDateTemp
-                    cityForecast.thirdDateTemp = cityForecaseForDateBase.thirdDateTemp
-                    cityForecast.fourthDateTemp = cityForecaseForDateBase.fourthDateTemp
-                    cityForecast.fifthDayeTemp = cityForecaseForDateBase.fifthDayeTemp
-                    print(cityForecast)
-                }else{
-                    #warning("fix")
-                    //we are still on the same date, so show the previous data
-                }
+                //we have the city in the DB, so we need to update the DB with new values
+                self.populate(cityForecast: cityInDataBase, with: cityForecaseForDateBase)
                 
             case .failure(_):
-                #warning("fix")
                 //we do not have any data in DB, so add it
-                print()
+                let cityForecast = CityForecast(context: self.persistentContainer.viewContext)
+                self.populate(cityForecast: cityForecast, with: cityForecaseForDateBase)
+            }
+            
+            do {
+                try self.persistentContainer.viewContext.save()
+                completion(nil)
+            }catch{
+                completion(.coreDataError(errorMessage: "saving error \(error.localizedDescription)"))
             }
         }
     }
+    
+    private func populate(cityForecast : CityForecast, with cityForecaseForDateBase :CityForecastForDataBase) {
+        cityForecast.cityId = cityForecaseForDateBase.cityId
+        cityForecast.cityName = cityForecaseForDateBase.cityName
+        cityForecast.currentDate = cityForecaseForDateBase.currentDate
+        cityForecast.currectDateTemp = cityForecaseForDateBase.currectDateTemp
+        cityForecast.firstDateTemp = cityForecaseForDateBase.firstDateTemp
+        cityForecast.secondDateTemp = cityForecaseForDateBase.secondDateTemp
+        cityForecast.thirdDateTemp = cityForecaseForDateBase.thirdDateTemp
+        cityForecast.fourthDateTemp = cityForecaseForDateBase.fourthDateTemp
+        cityForecast.fifthDayeTemp = cityForecaseForDateBase.fifthDayeTemp
+        print("cityForecast \(cityForecast)")
+        print("cityForecaseForDateBase \(cityForecaseForDateBase)")
+    }
+    
+    func checkIfUpdateRequired(for cityID : NSNumber) -> Bool {
+        let result = fetchForecastFor(cityId: cityID)
+        switch result {
+        case .failure(_):
+            return true //there is no such city, so we need to update
+        case .success(let cityForecast):
+            let currentStartOfDay = Date().startOfDay!
+            if let dataBaseCurrentStartOfDay = cityForecast.currentDate?.startOfDay {
+                if currentStartOfDay.isAfter(date: dataBaseCurrentStartOfDay) {//if the current date is after the date saved in DB, get an update
+                    return true
+                }else{
+                    return false //the current date is saved in the DB, so we don't need an update
+                }
+            }else{
+                return true // if for some resone we don't have a current date in DB, get a new update
+            }
+        }
+        
+    }
+    
     
     func fetchForecastFor(cityId : NSNumber) -> CoreDateForecastFetchCompletion {
         let request = CityForecast.createFetchRequest()

@@ -31,6 +31,7 @@ struct MoyaNetworkService {
             switch result {
             case .success(let responce):
                 completion(.success(responce.data))
+                
             case .failure(let moyaError):
                 completion(.failure(moyaError))
             }
