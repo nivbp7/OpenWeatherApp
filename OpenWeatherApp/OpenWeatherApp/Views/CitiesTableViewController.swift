@@ -12,7 +12,7 @@ class CitiesTableViewController: UITableViewController {
     
     private lazy var dataSource = makeTableViewDataSource()
     let cityWeatherViewModel : CityWeatherViewModel
-
+    
     var onIndexPathSelected : (IndexPath) -> () = {IndexPath in }
     
     override func viewDidLoad() {

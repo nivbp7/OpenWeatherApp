@@ -48,9 +48,5 @@ class ForecastTableViewCell: UITableViewCell {
             stackView.widthAnchor.constraint(equalToConstant: contentView.frame.width)
             
         ])
-        
-        
     }
-    
-    
 }

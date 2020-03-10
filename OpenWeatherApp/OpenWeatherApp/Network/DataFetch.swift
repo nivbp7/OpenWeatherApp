@@ -21,7 +21,7 @@ typealias ForecastFetchCompletion = (FetchError?) -> Void
 struct DataFetch {
     
     let coreDataInterface : CoreDataInterface?
-
+    
     init(coreDataInterface : CoreDataInterface?) {
         self.coreDataInterface = coreDataInterface
     }
@@ -108,9 +108,6 @@ struct DataFetch {
         }
     }
     
-    
-    
-    
     private func saveCurrentWeather(currentWeather : CurrentWeather,with completion : @escaping CoreDataCompletion) {
         self.coreDataInterface?.save(currentWeather: currentWeather) { (coreDataError) in
             completion(coreDataError)
@@ -122,8 +119,5 @@ struct DataFetch {
             completion(coreDataError)
         })
     }
-    
-    
-    
     
 }

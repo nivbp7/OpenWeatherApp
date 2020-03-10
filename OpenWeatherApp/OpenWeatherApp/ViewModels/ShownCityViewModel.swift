@@ -35,8 +35,4 @@ struct ShownCityViewModel {
     func getCityIdInt() -> Int {
         return cityId.intValue
     }
-        
-    
-    
-    
 }

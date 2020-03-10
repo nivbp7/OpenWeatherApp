@@ -12,7 +12,7 @@ class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
     
     private lazy var collectionView = makeCollectionView()
     private lazy var dataSource = makeCollectionViewDataSource()
-
+    
     let cityWeatherViewModel : CityWeatherViewModel
     
     var onIndexPathSelected : (IndexPath) -> () = {IndexPath in }

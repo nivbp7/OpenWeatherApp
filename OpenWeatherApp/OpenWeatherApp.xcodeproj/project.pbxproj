@@ -52,7 +52,6 @@
 		E8AE50A824169A93007555EE /* CityForecastAggregator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AE50A724169A93007555EE /* CityForecastAggregator.swift */; };
 		E8C7025C240EF76000518438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025B240EF76000518438 /* AppDelegate.swift */; };
 		E8C7025E240EF76000518438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025D240EF76000518438 /* SceneDelegate.swift */; };
-		E8C70260240EF76000518438 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C7025F240EF76000518438 /* ViewController.swift */; };
 		E8C70266240EF76000518438 /* OpenWeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8C70264240EF76000518438 /* OpenWeatherApp.xcdatamodeld */; };
 		E8C70268240EF76900518438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8C70267240EF76900518438 /* Assets.xcassets */; };
 		E8C7026B240EF76900518438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8C70269240EF76900518438 /* LaunchScreen.storyboard */; };
@@ -104,7 +103,6 @@
 		E8C70258240EF76000518438 /* OpenWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8C7025B240EF76000518438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8C7025D240EF76000518438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E8C7025F240EF76000518438 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E8C70265240EF76000518438 /* OpenWeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OpenWeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		E8C70267240EF76900518438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8C7026A240EF76900518438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 				E8C70274240EF8A600518438 /* Views */,
 				E8C70273240EF87200518438 /* Data */,
 				E8C70272240EF84200518438 /* Support */,
-				E8C7025F240EF76000518438 /* ViewController.swift */,
 				E8C7026C240EF76900518438 /* Info.plist */,
 			);
 			path = OpenWeatherApp;
@@ -371,7 +368,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8C70260240EF76000518438 /* ViewController.swift in Sources */,
 				E856858424101406008B7A29 /* CitiesViewModel.swift in Sources */,
 				E8090A392415A46200E2740A /* CityFutureForecastTableViewController.swift in Sources */,
 				E856858E2410F984008B7A29 /* UITableViewCell+Cofig.swift in Sources */,

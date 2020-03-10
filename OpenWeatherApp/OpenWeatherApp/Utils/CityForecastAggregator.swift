@@ -82,6 +82,4 @@ struct CityForecastAggregator {
         
         return cityForecastForDataBase
     }
-    
-    
 }

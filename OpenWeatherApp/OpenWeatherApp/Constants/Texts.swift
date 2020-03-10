@@ -10,7 +10,6 @@ import Foundation
 
 struct Texts {
     
-    
     //MARK: - cities
     static let jerusalem = "Jerusalem"
     static let telAviv = "Tel-Aviv"
@@ -30,7 +29,5 @@ struct Texts {
     //MARK:- Errors
     static let incorrectCell = "Incorrect cell setup for collection view"
     static let noItemInRow = "No itme for this row"
-
-
-
+    
 }

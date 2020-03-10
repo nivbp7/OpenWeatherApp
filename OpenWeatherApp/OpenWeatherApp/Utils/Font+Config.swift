@@ -15,6 +15,4 @@ extension UIFont {
     
     static let forecastDayFont : CGFloat = 20.0
     static let forecstTempFont : CGFloat = 20.0
-    
-   
 }

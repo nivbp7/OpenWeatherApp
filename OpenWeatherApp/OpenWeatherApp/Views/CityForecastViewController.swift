@@ -10,10 +10,10 @@ import UIKit
 import MyViewsCustomized
 
 class CityForecastViewController: UIViewController {
-        
+    
     let coreDataInterface : CoreDataInterface
     let shownCityViewModel : ShownCityViewModel
-
+    
     private lazy var cityNameLabel = makeCityLabel()
     private lazy var cityTempLabel = makeCityTempLabel()
     
@@ -117,9 +117,4 @@ class CityForecastViewController: UIViewController {
             self.add(vc, below: self.cityTempLabel, withPadding: UILabel.edgePadding)
         }
     }
-    
-    
-    
-    
-    
 }

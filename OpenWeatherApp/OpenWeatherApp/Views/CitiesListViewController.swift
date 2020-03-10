@@ -58,7 +58,7 @@ final class CitiesListViewController: UIViewController {
         stateButton.addTarget(self, action: #selector(stateButtonTapped), for: .touchUpInside)
         return stateButton
     }
-
+    
     
     //MARK: - configure
     private func configureView() {
@@ -152,10 +152,5 @@ final class CitiesListViewController: UIViewController {
         let cityForecastViewController = CityForecastViewController(coreDataInterface: coreDataInterface, shownCityViewModel: showCityViewModel)
         navigationController?.pushViewController(cityForecastViewController, animated: true)
     }
-    
-    
-    
-    
-    
     
 }

@@ -55,7 +55,5 @@ class CityTableViewCell: UITableViewCell {
             stackView.widthAnchor.constraint(equalToConstant: contentView.frame.width),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UITableViewCell.cellPadding),
         ])
-        
     }
-    
 }

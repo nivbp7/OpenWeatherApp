@@ -9,11 +9,8 @@
 import UIKit
 
 class CityFutureForecastTableViewController: UITableViewController {
-
-//    private lazy var dataSource = makeTableViewDataSource()
+    
     let cityForecastViewModel : CityForecastViewModel
-
-//    var onIndexPathSelected : (IndexPath) -> () = {IndexPath in }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +42,4 @@ class CityFutureForecastTableViewController: UITableViewController {
         tableView.dataSource = cityForecastViewModel
     }
     
-    //MARK: - factory
-//    private func makeTableViewDataSource() -> CityForecastViewModel {
-//        return CityForecastViewModel()
-////        return TableViewDataSource(cityWeatherViewModel: cityWeatherViewModel)
-//
-//    }
-
-   
 }

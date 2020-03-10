@@ -144,7 +144,6 @@ struct CoreDataInterface {
                 return true // if for some resone we don't have a current date in DB, get a new update
             }
         }
-        
     }
     
     
