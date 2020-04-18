@@ -12,8 +12,6 @@ import Moya
 //api.openweathermap.org/data/2.5/forecast?id=293397&appid=e4bb695a74b1eca68577848b1da1079d
 
 
-
-
 enum OpenWetherApi {
     static private let apiKey = "e4bb695a74b1eca68577848b1da1079d"
     static private let baseUrlString = "https://api.openweathermap.org/data/2.5"
