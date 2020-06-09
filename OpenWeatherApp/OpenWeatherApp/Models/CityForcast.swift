@@ -7,7 +7,9 @@
 //
 
 import Foundation
-
+/*
+ Model for the Forecast data
+ */
 
 /*
  {

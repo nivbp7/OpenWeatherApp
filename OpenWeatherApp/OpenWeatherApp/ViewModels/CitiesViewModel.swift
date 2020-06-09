@@ -7,6 +7,9 @@
 //
 
 import Foundation
+/*
+ view model for the cities. it is initiated with static data, as per specification
+ */
 
 struct CitiesViewModel {
     

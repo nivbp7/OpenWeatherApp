@@ -8,6 +8,10 @@
 
 import UIKit
 
+/*
+ basic flow layout for collection view
+ */
+
 struct UIConfig {
     static func createFlowLayout(in view : UIView,numberOfColums : Int) -> UICollectionViewFlowLayout {
         

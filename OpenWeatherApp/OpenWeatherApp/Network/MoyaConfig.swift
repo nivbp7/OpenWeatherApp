@@ -9,13 +9,19 @@
 import Foundation
 import Moya
 
+/*
+ This is the configuration for Moya
+ 
+ */
+
 //api.openweathermap.org/data/2.5/forecast?id=293397&appid=e4bb695a74b1eca68577848b1da1079d
 
 
 enum OpenWetherApi {
-    static private let apiKey = "e4bb695a74b1eca68577848b1da1079d"
-    static private let baseUrlString = "https://api.openweathermap.org/data/2.5"
+    static private let apiKey = "e4bb695a74b1eca68577848b1da1079d" //user specific API key
+    static private let baseUrlString = "https://api.openweathermap.org/data/2.5" //API URL
     
+    //different paths for requests
     static private let currentWeatherPath = "/weather"
     static private let forecastPath = "/forecast"
     

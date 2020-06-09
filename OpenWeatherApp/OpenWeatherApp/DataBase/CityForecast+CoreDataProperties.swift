@@ -9,7 +9,10 @@
 
 import Foundation
 import CoreData
-
+/*
+ Object for keeping the forecast for a city.
+ 
+ */
 
 extension CityForecast {
 
@@ -20,6 +23,9 @@ extension CityForecast {
     @NSManaged public var cityId: NSNumber?
     @NSManaged public var cityName: String?
     @NSManaged public var currectDateTemp: NSNumber?
+    
+//    !!! this should have been broken down into an array
+
     @NSManaged public var firstDateTemp: NSNumber?
     @NSManaged public var secondDateTemp: NSNumber?
     @NSManaged public var thirdDateTemp: NSNumber?

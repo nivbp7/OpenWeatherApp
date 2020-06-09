@@ -14,14 +14,17 @@ enum DateFormatingType : String {
 }
 
 extension Date {
+    //get the start (time) for a Date object
     var startOfDay : Date? {
         return Calendar.current.startOfDay(for: self)
     }
     
+    //get the integer of the day of the week
     var dayOfTheWeekInt : Int {
         return Calendar.current.component(.weekday, from: self)
     }
     
+    //check if a Date (self) is after another Date, with a specific granularity option
     func isAfter(date : Date,with granularity : Calendar.Component) -> Bool {
         let result = Calendar.current.compare(self, to: date, toGranularity: granularity)
         switch result {
@@ -32,6 +35,7 @@ extension Date {
         }
     }
     
+    //check if the the time of Date (self) is after 12:00 (noon)
     func isAfterNoon() -> Bool? {
         let today = Date()
         var comps = Calendar.current.dateComponents([.day,.month,.year], from: today)

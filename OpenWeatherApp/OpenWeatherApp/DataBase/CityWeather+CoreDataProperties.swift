@@ -10,7 +10,9 @@
 import Foundation
 import CoreData
 
-
+/*
+ Object for keeping city weather. It holds all the relevant info
+ */
 extension CityWeather {
 
     @nonobjc public class func createFetchRequest() -> NSFetchRequest<CityWeather> {

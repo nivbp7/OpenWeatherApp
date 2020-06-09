@@ -8,6 +8,11 @@
 
 import UIKit
 
+/*
+ We show the app in two options - table and collection
+ This is the CollectionViewDataSource when we set up everything the CV needs to show data
+ */
+
 final class CollectionViewDataSource : NSObject, UICollectionViewDataSource {
     
     let cityWeatherViewModel : CityWeatherViewModel

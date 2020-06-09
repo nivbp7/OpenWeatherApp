@@ -9,9 +9,14 @@
 import Foundation
 import Moya
 
+/*
+ this is the Moya network handling object
+ */
+
 typealias MoyaCompletion = (Result<Data,Error>) -> Void
 
 struct MoyaNetworkService {
+    //this is the call for getting weather data
     func getCurrentWeatherForCityId(cityId : Int, with completion : @escaping MoyaCompletion) {
         let moyaProvider = MoyaProvider<OpenWetherApi>()
         moyaProvider.request(.currentWeather(cityId: cityId)) { (result) in
@@ -26,6 +31,8 @@ struct MoyaNetworkService {
     }
     
     func getForecastForCityId(cityId : Int, with completion : @escaping MoyaCompletion) {
+        //this is the call for getting weather data
+
         let moyaProvider = MoyaProvider<OpenWetherApi>()
         moyaProvider.request(.forecast(cityId: cityId)) { (result) in
             switch result {

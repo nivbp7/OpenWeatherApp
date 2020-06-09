@@ -8,6 +8,11 @@
 
 import Foundation
 
+/*
+ VM for showing city weather
+ 
+ */
+
 struct ShownWeather {
     var cityName : String
     var cityTemp : String
@@ -26,6 +31,7 @@ final class CityWeatherViewModel {
         allCitiesWeather = cityWeatherArray
     }
     
+    //the VM takes the data from the CityWeather model and turns in into a new struct which is structured by the way we want to present the data
     func shownWeather(at index : Int) -> ShownWeather {
         
         guard index < allCitiesWeather.count else {

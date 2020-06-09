@@ -7,6 +7,10 @@
 //
 
 import Foundation
+/*
+ VM for showing the city weather
+
+ */
 
 struct ShownCityViewModel {
     

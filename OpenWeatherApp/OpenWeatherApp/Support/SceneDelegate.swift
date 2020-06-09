@@ -27,6 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
     
+    //we create our main Nav controller for the app.
     func createMainNavigationController() -> UINavigationController {
         let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
         let coreDataInterface = CoreDataInterface(persistentContainer: persistentContainer)

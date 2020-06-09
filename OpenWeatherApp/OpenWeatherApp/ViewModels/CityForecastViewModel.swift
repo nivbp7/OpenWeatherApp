@@ -8,6 +8,11 @@
 
 import UIKit
 
+/*
+ VM for showing city forecast
+ 
+ */
+
 struct CityForecastForDay {
     var day : String
     var temp : String
@@ -47,7 +52,16 @@ final class CityForecastViewModel : NSObject {
 
     func createCityForecastForDatesArray() -> [CityForecastForDay] {
         var cityForecastForDayArray = [CityForecastForDay]()
+        /////////////  this should have been added to the Date+utils ///////////////////
+
         let daysOfTheWeek = ["Sunday","Monday","Tuesday","Wedensday","Thursday","Friday","Saturday"]
+        
+        //find the current day of the week for the city forecast
+        //go over the next 5 days
+        //find the next day index
+        //find the next day string (is a %7 index in the array of days)
+        //save the matching next day temp with the day name
+        
         if let currentDayInt = cityForcast.currentDate?.dayOfTheWeekInt {
             let currentDayIndex = currentDayInt - 1 //weekdays start at 1, but the index starts at zero
             
@@ -85,8 +99,9 @@ final class CityForecastViewModel : NSObject {
     }
 }
 
+//we add the data source to this VM
 extension CityForecastViewModel : UITableViewDataSource {
-    //MARK: - table view data dource
+    //MARK: - table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cityForcastArray.count
     }

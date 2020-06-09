@@ -8,6 +8,11 @@
 
 import UIKit
 
+/*
+We show the app in two options - table and collection
+This is the TableViewDataSource when we set up everything the TV needs to show data
+*/
+
 final class TableViewDataSource : NSObject, UITableViewDataSource {
     
     let cityWeatherViewModel : CityWeatherViewModel

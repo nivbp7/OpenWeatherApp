@@ -7,6 +7,9 @@
 //
 
 import UIKit
+/*
+ a child VC for the forecast temps
+ */
 
 final class CityFutureForecastTableViewController: UITableViewController {
     

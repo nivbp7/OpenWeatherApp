@@ -24,14 +24,14 @@ final class CityTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        configue()
+        configure()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError(Texts.noStoryboardImplementation)
     }
     
-    private func configue() {
+    private func configure() {
         selectionStyle = .none
         backgroundColor = .clear
         contentView.backgroundColor = .clear

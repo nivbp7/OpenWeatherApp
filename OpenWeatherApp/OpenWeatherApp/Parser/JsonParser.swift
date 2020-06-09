@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ receive Data and a decoder (with a default one) and return the objects or an error
+ */
+
 struct JsonParser {
     
     private var data : Data

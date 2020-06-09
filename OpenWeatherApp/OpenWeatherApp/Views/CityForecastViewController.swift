@@ -9,6 +9,10 @@
 import UIKit
 import MyViewsCustomized
 
+/*
+ main VC for showing forecast
+ */
+
 final class CityForecastViewController: UIViewController {
     
     let coreDataInterface : CoreDataInterface
@@ -85,6 +89,7 @@ final class CityForecastViewController: UIViewController {
     
     //MARK: - fetch forecast data
     private func checkIfFetchRequired() {
+        //we check if we need to update the forecast data, and only if we do, we make a network request
         if coreDataInterface.checkIfUpdateRequired(for: shownCityViewModel.getCityId()) {
             fetchForecastData()
         }else{
@@ -116,6 +121,8 @@ final class CityForecastViewController: UIViewController {
     }
     
     private func showCityFutureTableViewController(with cityForecastViewModel : CityForecastViewModel) {
+        //we show a child VC with the forecast temps
+        
         cityFuturetTableViewController = CityFutureForecastTableViewController(cityForecastViewModel: cityForecastViewModel)
         if let vc = cityFuturetTableViewController {
             self.add(vc, below: self.cityTempLabel, withPadding: UILabel.edgePadding)

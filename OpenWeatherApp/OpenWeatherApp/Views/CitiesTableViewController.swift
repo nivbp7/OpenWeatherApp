@@ -7,6 +7,9 @@
 //
 
 import UIKit
+/*
+ Child Vc for showing a table view
+ */
 
 final class CitiesTableViewController: UITableViewController {
     

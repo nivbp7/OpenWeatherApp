@@ -7,6 +7,9 @@
 //
 
 import UIKit
+/*
+ child VC for showing a collection view
+ */
 
 final class CitiesGridViewController: UIViewController,UICollectionViewDelegate {
     

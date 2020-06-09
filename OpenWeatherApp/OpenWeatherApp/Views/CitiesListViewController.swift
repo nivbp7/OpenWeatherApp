@@ -9,6 +9,11 @@
 import UIKit
 import MyViewsCustomized
 
+/*
+ the main view
+ 
+ */
+
 final class CitiesListViewController: UIViewController {
     
     private lazy var stateButton = makeStateButton()
@@ -73,12 +78,13 @@ final class CitiesListViewController: UIViewController {
     }
     
     private func configureChildViewControllers() {
+        //we use closure for sending taps to this VC
         citiesTableViewController.onIndexPathSelected = { [weak self] indexPath in
             self?.showCityForecast(for: indexPath)
         }
         
-        citiesCollectionViewController.onIndexPathSelected = { [weak self] inndexPAth in
-            self?.showCityForecast(for: inndexPAth)
+        citiesCollectionViewController.onIndexPathSelected = { [weak self] indexPath in
+            self?.showCityForecast(for: indexPath)
         }        
     }
     

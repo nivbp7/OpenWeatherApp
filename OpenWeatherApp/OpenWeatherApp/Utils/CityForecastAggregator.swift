@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ this object turns the forecast data fetched from the network into data which can be saved to DB
+ */
+
 struct CityForecastForDataBase {
     var cityId: NSNumber
     var cityName: String
@@ -35,6 +39,7 @@ struct CityForecastAggregator {
         let cityId = NSNumber(value:fullCityForecastForFiveDays.city.id)
         let cityName = fullCityForecastForFiveDays.city.name
         
+        //get the start of date for the first day in the forecast
         let currentDate = fullCityForecastForFiveDays.list.first?.dtTxt.toDate(with: .fullDate)?.startOfDay ?? Date().startOfDay!
         
        
@@ -45,10 +50,19 @@ struct CityForecastAggregator {
         var thirdDateTemp : NSNumber?
         var fourthDateTemp : NSNumber?
         var fifthDateTemp : NSNumber?
+        
+        
+        //we need to check if the first item is before or after 12:00
+        //if it is before 12:00, we will use today's 12:00 temp as today's current temp
+        //if it is after 12:00, we will use the first itme's temp as today's current temp
+        
         var currentDay = 0
         
         if let isAfterNoon = fullCityForecastForFiveDays.list.first?.dtTxt.toDate(with: .fullDate)?.isAfterNoon(), isAfterNoon {
+            
+            //if the first day is after 12:00, our 'currentDay' tracking below will start from '1' and the temp for the 'currentDay' will be taken from the 'first' value of the data (as seen below)
             currentDay = 1
+            
             if let currectTemp = fullCityForecastForFiveDays.list.first?.main.temp {
                 currectDateTemp = NSNumber(value: currectTemp)
             }
@@ -56,11 +70,6 @@ struct CityForecastAggregator {
         
         
         for cityForcast in fullCityForecastForFiveDays.list {
-            
-            //we need to check if the first item is before or after 12:00
-            //if it is before 12:00, we will use today's 12:00 temp as today's current temp
-            //if it is after 12:00, we will use the first itme's temp as today's current temp
-            
             let dateText = cityForcast.dtTxt
             if dateText.contains("12:00:00") {
                 //we search only for the temp at noon
