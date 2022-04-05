@@ -14,6 +14,7 @@ import MyViewsCustomized
  
  */
 
+@available(iOS 15.0, *)
 final class CitiesListViewController: UIViewController {
     
     private lazy var stateButton = makeStateButton()

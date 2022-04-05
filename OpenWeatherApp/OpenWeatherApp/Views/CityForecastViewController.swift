@@ -13,6 +13,7 @@ import MyViewsCustomized
  main VC for showing forecast
  */
 
+@available(iOS 15.0, *)
 final class CityForecastViewController: UIViewController {
     
     let coreDataInterface : CoreDataInterface

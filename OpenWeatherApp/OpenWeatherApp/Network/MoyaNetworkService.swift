@@ -17,6 +17,7 @@ typealias MoyaCompletion = (Result<Data,Error>) -> Void
 
 struct MoyaNetworkService {
     //this is the call for getting weather data
+    @available(*, renamed: "getCurrentWeatherForCityId(cityId:)")
     func getCurrentWeatherForCityId(cityId : Int, with completion : @escaping MoyaCompletion) {
         let moyaProvider = MoyaProvider<OpenWetherApi>()
         moyaProvider.request(.currentWeather(cityId: cityId)) { (result) in
@@ -29,6 +30,15 @@ struct MoyaNetworkService {
             }
         }
     }
+    
+    func getCurrentWeatherForCityId(cityId : Int) async throws -> Data {
+        return try await withCheckedThrowingContinuation { continuation in
+            getCurrentWeatherForCityId(cityId: cityId) { result in
+                continuation.resume(with: result)
+            }
+        }
+    }
+    
     
     func getForecastForCityId(cityId : Int, with completion : @escaping MoyaCompletion) {
         //this is the call for getting weather data

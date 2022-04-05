@@ -38,8 +38,9 @@ struct CoreDataInterface {
     
     //we call this method to save the current weather
     
-    func save(currentWeather : CurrentWeather, with completion : @escaping CoreDataCompletion) {
-        persistentContainer.viewContext.perform {
+    @available(iOS 15.0, *)
+    func save(currentWeather : CurrentWeather) async -> CoreDataError? {
+        await persistentContainer.viewContext.perform {
             
             let cityId = currentWeather.id
             let coreDataFetch = self.fetch(cityId: cityId)
@@ -63,12 +64,47 @@ struct CoreDataInterface {
             }
             do {
                 try self.persistentContainer.viewContext.save()
-                completion(nil)
+                return nil
+//                completion(nil)
             }catch{
-                completion(.coreDataError(errorMessage: "saving error \(error.localizedDescription)"))
+                return .coreDataError(errorMessage: "saving error \(error.localizedDescription)")
+//                completion(.coreDataError(errorMessage: "saving error \(error.localizedDescription)"))
             }
         }
     }
+    
+    
+//    func save(currentWeather : CurrentWeather, with completion : @escaping CoreDataCompletion) {
+//        persistentContainer.viewContext.perform {
+//
+//            let cityId = currentWeather.id
+//            let coreDataFetch = self.fetch(cityId: cityId)
+//            //we check if this city already exists in the DB.
+//
+//            switch coreDataFetch {
+//            case .success(let cityInDataBase):
+//                //we have this city in the DB
+//                cityInDataBase.currentTemp = NSNumber(value:currentWeather.main.temp)
+//                cityInDataBase.currentTempDescription = currentWeather.weather[0].description
+//                cityInDataBase.lastUpdate = NSNumber(value:Date().timeIntervalSince1970) //if we have the city in the DB, the update time will be now, as we just fetched it
+//
+//            case .failure(_):
+//                //city is not in DB, so add it
+//                let cityWeather = CityWeather(context: self.persistentContainer.viewContext)
+//                cityWeather.cityId = NSNumber(value: currentWeather.id)
+//                cityWeather.cityName = currentWeather.name
+//                cityWeather.currentTemp = NSNumber(value:currentWeather.main.temp)
+//                cityWeather.currentTempDescription = currentWeather.weather[0].description
+//                cityWeather.lastUpdate = NSNumber(value:currentWeather.dt) //if we do not have the city in the DB, we use the time from the data we fetched
+//            }
+//            do {
+//                try self.persistentContainer.viewContext.save()
+//                completion(nil)
+//            }catch{
+//                completion(.coreDataError(errorMessage: "saving error \(error.localizedDescription)"))
+//            }
+//        }
+//    }
     
     //fetching data for a city ID, this is so we check if we already have a city with this ID saved (can be used if needed for other implementations)
     func fetch(cityId : Int) -> CoreDataFetchCompletion {
